@@ -2,3 +2,4 @@ myenv
 __pycache__
 config.py
 reads
+sftp*
