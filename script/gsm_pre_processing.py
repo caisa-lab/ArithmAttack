@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 # Load the dataset
-df = pd.read_json("/Users/zainabedin/Desktop/NoiseInMath/data/train.jsonl", lines=True)
+df = pd.read_json("/home/stud/qamars1/NoiseInMath/data/train.json")
 
 def extract_numeric_answer(answer):
     numeric_answer = re.search(r'#### (\d+)', answer)
@@ -12,7 +12,7 @@ def extract_numeric_answer(answer):
         return None
 
 df['numeric_answer'] = df['answer'].apply(extract_numeric_answer)
-
+df.to_csv('../data/train_preprocessed.csv',index=False)
 # Display the preprocessed dataset
 print(df.head())
 
