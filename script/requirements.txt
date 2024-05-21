@@ -1,3 +1,7 @@
 transformers
 pandas
 torch
+accelerate
+transformers
+pandas
+bitsandbytes

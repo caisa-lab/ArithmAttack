@@ -1,42 +1,58 @@
-import json
-
+import torch
+from transformers import (
+    pipeline,
+    AutoTokenizer,
+    AutoModelForCausalLM,
+    BitsAndBytesConfig,
+)
+import csv
+import zipfile
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForCausalLM
+import re
+import random
+import sys, os, json
+
 
 from config import access_token
-# Step 1: Load the local dataset
-def load_local_dataset(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    return data
 
+
+
+DIR_PATH = "/home/stud/abedinz1/localDisk/narrative"
 access_token = access_token
-dataset_path = "../data/train_preprocessed.csv"
-data = pd.read_csv(dataset_path)
-
-model_name = "mistralai/Mistral-7B-Instruct-v0.2"  
+#model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+model_name = "mistralai/Mistral-7B-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
-model = AutoModelForCausalLM.from_pretrained(model_name, token=access_token)
 
-def generate_answer(question):
-    inputs = tokenizer(question, return_tensors="pt")
-    outputs = model.generate(**inputs)
-    answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    return answer
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16,
+)
 
-correct_answers = 0
-total_questions = len(data)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    token=access_token,
+    device_map={"": 0},
+    quantization_config=bnb_config,
+)
 
-question = 'Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. How many clips did Natalia sell altogether in April and May?'
-print(generate_answer(question))
-# for item in data:
-#     question = item['question']
-#     correct_answer = item['answer']
-#
-#     generated_answer = generate_answer(question)
-#
-#     if generated_answer.strip() == correct_answer.strip():
-#         correct_answers += 1
-#
-# accuracy = correct_answers / total_questions * 100
-# print(f"Accuracy: {accuracy:.2f}%")
+model.config.use_cache = False
+model.config.pretraining_tp = 1
+
+# Create the question-answering pipeline
+qa_pipeline = pipeline(
+    "text-generation",
+    model=model,
+    tokenizer=tokenizer,
+    max_length=1024,
+    do_sample=True,
+    top_k=10,
+    num_return_sequences=1,
+)
+
+prompt = "What is the capital of india"
+
+sequences = qa_pipeline(prompt, eos_token_id=tokenizer.eos_token_id)
+print(sequences)
+
