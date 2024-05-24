@@ -1,0 +1,183 @@
+# import torch
+# from transformers import (
+#     pipeline,
+#     AutoTokenizer,
+#     AutoModelForCausalLM,
+#     BitsAndBytesConfig,
+# )
+
+
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+import csv
+import zipfile
+import pandas as pd
+import re
+import random
+import sys, os, json
+
+from jsonformer import Jsonformer
+
+from config import access_token
+from utils import get_questions_and_answer_from_dataset
+
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xl")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xl", device_map={"": 0}, max_length=512)
+
+DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
+# access_token = access_token
+# model_name = "google/flan-t5-xl"
+# tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
+
+# bnb_config = BitsAndBytesConfig(
+#     load_in_4bit=True,
+#     bnb_4bit_use_double_quant=True,
+#     bnb_4bit_quant_type="nf4",
+#     bnb_4bit_compute_dtype=torch.bfloat16,
+# )
+
+# model = AutoModelForCausalLM.from_pretrained(
+#     model_name,
+#     token=access_token,
+#     device_map={"": 0},
+#     quantization_config=bnb_config,
+# )
+
+# model.config.use_cache = False
+# model.config.pretraining_tp = 1
+
+json_schema1 = {
+    "type": "object",
+    "properties": {
+        "answer": {"type":"string"},
+    },
+}
+
+csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
+questions, ground_truths = get_questions_and_answer_from_dataset(
+    csv_file
+)
+
+
+output_file = f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/flan/flan_gsm_response.csv"
+counter=0
+with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
+    fieldnames = [
+        "Question",
+        "Answer - LLM",
+        "Answer - Ground Truth",
+    ]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+    counter = 0
+
+    json_format = {
+        "answer": {"<contains the correct numerical answer>"},
+    }
+    for question, ground_truth in zip(
+        questions, ground_truths
+    ):
+
+        prompt = f"""
+        [INST] 
+        persona:
+        You are an expert in math problem solving
+        
+        goal:
+        Please answer the following question:   
+
+        Instruction:
+        Make sure to give answer as numerical value only.
+
+        question:
+        {question}
+        
+        format:
+        {json_format}
+
+
+        [/INST]
+        """
+        
+        jsonformer = Jsonformer(
+            model,
+            tokenizer,
+            json_schema1,
+            prompt,
+            max_string_token_length=600,
+        )
+
+        generated_data = jsonformer()
+        import pprint
+        pprint.pprint(prompt)
+        print("##RESPONSE##")
+        pprint.pprint(generated_data)
+
+        writer.writerow(
+            {
+                "Question": question,
+                "Answer - Ground Truth": ground_truth,
+                "Answer - LLM": generated_data["answer"],
+            }
+        )
+
+        counter += 1
+        if counter >=20:
+            break
+
+
+print(f"Questions and answers saved to {output_file}")
+
+print("Calculating accuracy")
+# Read the CSV file into a pandas DataFrame
+df = pd.read_csv(output_file)
+
+# Calculate accuracy
+total_rows = len(df)
+
+def safe_convert_to_int(value):
+    if isinstance(value, (int, float)):  # If the value is already an int or float, return it as int
+        return int(value)
+    
+    try:
+        # Define the regex pattern to match one or more digits at the beginning of the string
+        pattern = r'^\d+'
+        match = re.match(pattern, str(value))
+        
+        if match:
+            numeric_value = int(match.group())
+            return numeric_value
+        else:
+            # Handle the case where no numeric part is found at the beginning
+            return None
+    except (ValueError, TypeError):
+        # Return a default value or handle the error as needed
+        return None
+
+
+# Type cast both columns to float
+df['Answer - Ground Truth'] = df['Answer - Ground Truth'].apply(
+    safe_convert_to_int
+    )
+df['Answer - LLM'] = df['Answer - LLM'].apply(
+    safe_convert_to_int
+    )
+print(df['Answer - Ground Truth'])
+print(df['Answer - LLM'] )
+
+correct_matches = sum(df['Answer - Ground Truth'] == df["Answer - LLM"])
+accuracy = correct_matches / total_rows * 100
+
+
+print("correct_matches: ", correct_matches)
+print("accuracy: ",accuracy)
+# Create a DataFrame for script name and accuracy
+data = {'Script Name': ['flan_gsm.py'], 'Accuracy': [accuracy]}
+accuracy_df = pd.DataFrame(data)
+
+#Save the DataFrame to a new CSV file
+accuracy_df.to_csv("/home/stud/abedinz1/localDisk/nlplab/data/gsm/accuracy.csv", mode='a', header=False, index=False)
+
+print('Accuracy saved to accuracy.csv.')
+

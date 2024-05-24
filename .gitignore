@@ -5,3 +5,4 @@ reads
 sftp*
 *.json
 DS*
+*.csv
