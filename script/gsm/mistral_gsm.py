@@ -14,8 +14,8 @@ import sys, os, json
 
 from jsonformer import Jsonformer
 
-from script.gsm.config import access_token
-from script.gsm.utils import get_questions_and_answer_from_dataset
+from config import access_token
+from utils import get_questions_and_answer_from_dataset
 
 
 
@@ -48,7 +48,7 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/train_preprocessed.csv"
+csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
 questions, ground_truths = get_questions_and_answer_from_dataset(
     csv_file
 )
@@ -104,10 +104,10 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         generated_data = jsonformer()
-        # import pprint
-        # pprint.pprint(prompt)
-        # print("##RESPONSE##")
-        # pprint.pprint(generated_data)
+        import pprint
+        pprint.pprint(prompt)
+        print("##RESPONSE##")
+        pprint.pprint(generated_data)
 
         writer.writerow(
             {
@@ -117,9 +117,9 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             }
         )
 
-        # counter += 1
-        # if counter >=30:
-        #     break
+        counter += 1
+        if counter >=300:
+            break
 
 
 print(f"Questions and answers saved to {output_file}")
@@ -148,7 +148,7 @@ print("accuracy: ",accuracy)
 data = {'Script Name': ['lama3-8B-narrative-2.py'], 'Accuracy': [accuracy]}
 accuracy_df = pd.DataFrame(data)
 
-# Save the DataFrame to a new CSV file
-#accuracy_df.to_csv('/home/stud/abedinz1/localDisk/narrative/data/gpqa/gpqa_results.csv', mode='a', header=False, index=False)
+#Save the DataFrame to a new CSV file
+accuracy_df.to_csv("/home/stud/abedinz1/localDisk/nlplab/data/gsm/accuracy.csv", mode='a', header=False, index=False)
 
-#print('Accuracy saved to accuracy.csv.')
+print('Accuracy saved to accuracy.csv.')
