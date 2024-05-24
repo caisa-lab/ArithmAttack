@@ -67,11 +67,13 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     counter = 0
 
     json_format = {
-        "answer": {"<contains the correct numerical answer>"},
+        "answer": {},
     }
     for question, ground_truth in zip(
         questions, ground_truths
     ):
+
+
 
         prompt = f"""
         [INST] 
@@ -88,18 +90,19 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         {question}
         
         format:
+        Use the following format for response:
         {json_format}
 
+        Please return only a integer or float as response, Response should not contain only numerical value
 
         [/INST]
         """
-        
         jsonformer = Jsonformer(
             model,
             tokenizer,
             json_schema1,
             prompt,
-            max_string_token_length=600,
+            max_string_token_length=1600,
         )
 
         generated_data = jsonformer()
@@ -117,7 +120,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         counter += 1
-        if counter >=300:
+        if counter >=60:
             break
 
 
@@ -130,9 +133,33 @@ df = pd.read_csv(output_file)
 # Calculate accuracy
 total_rows = len(df)
 
+def safe_convert_to_int(value):
+    if isinstance(value, (int, float)):  # If the value is already an int or float, return it as int
+        return int(value)
+    
+    try:
+        # Define the regex pattern to match one or more digits at the beginning of the string
+        pattern = r'^\d+'
+        match = re.match(pattern, str(value))
+        
+        if match:
+            numeric_value = int(match.group())
+            return numeric_value
+        else:
+            # Handle the case where no numeric part is found at the beginning
+            return None
+    except (ValueError, TypeError):
+        # Return a default value or handle the error as needed
+        return None
+
+
 # Type cast both columns to float
-df['Answer - Ground Truth'] = df['Answer - Ground Truth'].astype(float)
-df['Answer - LLM'] = df['Answer - LLM'].astype(float)
+df['Answer - Ground Truth'] = df['Answer - Ground Truth'].apply(
+    safe_convert_to_int
+    )
+df['Answer - LLM'] = df['Answer - LLM'].apply(
+    safe_convert_to_int
+    )
 
 print(df['Answer - Ground Truth'])
 print(df['Answer - LLM'] )

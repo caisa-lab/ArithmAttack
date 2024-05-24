@@ -21,7 +21,7 @@ from utils import get_questions_and_answer_from_dataset
 
 DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
 access_token = access_token
-model_name = "mistralai/Mistral-7B-v0.1"
+model_name = "mistralai/Mistral-7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
 
 bnb_config = BitsAndBytesConfig(
@@ -54,7 +54,7 @@ questions, ground_truths = get_questions_and_answer_from_dataset(
 )
 
 
-output_file = f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/mistral/mistral_gsm_response.csv"
+output_file = f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
 counter=0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [
@@ -68,7 +68,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     counter = 0
 
     json_format = {
-        "answer": {"<contains the correct numerical answer>"},
+        "answer": {},
     }
     for question, ground_truth in zip(
         questions, ground_truths
@@ -131,6 +131,7 @@ df = pd.read_csv(output_file)
 # Calculate accuracy
 total_rows = len(df)
 
+
 def safe_convert_to_int(value):
     if isinstance(value, (int, float)):  # If the value is already an int or float, return it as int
         return int(value)
@@ -158,6 +159,7 @@ df['Answer - Ground Truth'] = df['Answer - Ground Truth'].apply(
 df['Answer - LLM'] = df['Answer - LLM'].apply(
     safe_convert_to_int
     )
+
 print(df['Answer - Ground Truth'])
 print(df['Answer - LLM'] )
 
@@ -168,7 +170,7 @@ accuracy = correct_matches / total_rows * 100
 print("correct_matches: ", correct_matches)
 print("accuracy: ",accuracy)
 # Create a DataFrame for script name and accuracy
-data = {'Script Name': ['mistral_gsm.py'], 'Accuracy': [accuracy]}
+data = {'Script Name': ['mistral_instruct_gsm.py'], 'Accuracy': [accuracy]}
 accuracy_df = pd.DataFrame(data)
 
 #Save the DataFrame to a new CSV file
