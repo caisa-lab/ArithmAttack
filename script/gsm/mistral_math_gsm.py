@@ -144,7 +144,7 @@ accuracy = correct_matches / total_rows * 100
 print("correct_matches: ", correct_matches)
 print("accuracy: ",accuracy)
 # Create a DataFrame for script name and accuracy
-data = {'Script Name': ['lama3-8B-narrative-2.py'], 'Accuracy': [accuracy]}
+data = {'Script Name': ['mistral_math_gsm.py'], 'Accuracy': [accuracy]}
 accuracy_df = pd.DataFrame(data)
 
 #Save the DataFrame to a new CSV file
