@@ -49,7 +49,7 @@ json_schema1 = {
 csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
-
+# TODO: Change to relative path
 output_file = f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/mistral_math/mistral_math_gsm_response.csv"
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
@@ -134,6 +134,7 @@ def safe_convert_to_int(value):
     ):  # If the value is already an int or float, return it as int
         return int(value)
 
+#TODO: Only first numerical value? [Discuss]
     try:
         # Define the regex pattern to match one or more digits at the beginning of the string
         pattern = r"^\d+"
