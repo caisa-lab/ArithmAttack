@@ -15,10 +15,10 @@ import sys, os, json
 from jsonformer import Jsonformer
 
 from config import access_token
-from utils import get_questions_and_answer_from_dataset
+from utils import get_noisy_questions_and_answer_from_dataset
 
 
-DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
+#DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
 access_token = access_token
 model_name = "meta-math/MetaMath-Mistral-7B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -46,11 +46,11 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+csv_file = f"../../data/noisy_datasets/gsm8k_noisy_punct_10.csv"
+questions, ground_truths = get_noisy_questions_and_answer_from_dataset(csv_file)
 
 # TODO: Change to relative path
-output_file = f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/mistral_math/mistral_math_gsm_response.csv"
+output_file = f"../../data/gsm/mistral_math/mistral_math_gsm_response.csv"
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [
@@ -170,7 +170,7 @@ accuracy_df = pd.DataFrame(data)
 
 # Save the DataFrame to a new CSV file
 accuracy_df.to_csv(
-    "/home/stud/abedinz1/localDisk/nlplab/data/gsm/accuracy.csv",
+    "../../data/gsm/accuracy.csv",
     mode="a",
     header=False,
     index=False,
