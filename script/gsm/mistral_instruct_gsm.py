@@ -18,7 +18,6 @@ from config import access_token
 from utils import get_questions_and_answer_from_dataset
 
 
-
 DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
 access_token = access_token
 model_name = "mistralai/Mistral-7B-Instruct-v0.1"
@@ -44,18 +43,16 @@ model.config.pretraining_tp = 1
 json_schema1 = {
     "type": "object",
     "properties": {
-        "answer": {"type":"string"},
+        "answer": {"type": "string"},
     },
 }
 
 csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(
-    csv_file
-)
+questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 
 output_file = f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
-counter=0
+counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [
         "Question",
@@ -70,9 +67,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     json_format = {
         "answer": {},
     }
-    for question, ground_truth in zip(
-        questions, ground_truths
-    ):
+    for question, ground_truth in zip(questions, ground_truths):
 
         prompt = f"""
         [INST] 
@@ -94,7 +89,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
 
         [/INST]
         """
-        
+
         jsonformer = Jsonformer(
             model,
             tokenizer,
@@ -105,6 +100,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
 
         generated_data = jsonformer()
         import pprint
+
         pprint.pprint(prompt)
         print("##RESPONSE##")
         pprint.pprint(generated_data)
@@ -118,7 +114,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         counter += 1
-        if counter >=20:
+        if counter >= 10:
             break
 
 
@@ -133,14 +129,16 @@ total_rows = len(df)
 
 
 def safe_convert_to_int(value):
-    if isinstance(value, (int, float)):  # If the value is already an int or float, return it as int
+    if isinstance(
+        value, (int, float)
+    ):  # If the value is already an int or float, return it as int
         return int(value)
-    
+
     try:
         # Define the regex pattern to match one or more digits at the beginning of the string
-        pattern = r'^\d+'
+        pattern = r"^\d+"
         match = re.match(pattern, str(value))
-        
+
         if match:
             numeric_value = int(match.group())
             return numeric_value
@@ -153,27 +151,28 @@ def safe_convert_to_int(value):
 
 
 # Type cast both columns to float
-df['Answer - Ground Truth'] = df['Answer - Ground Truth'].apply(
-    safe_convert_to_int
-    )
-df['Answer - LLM'] = df['Answer - LLM'].apply(
-    safe_convert_to_int
-    )
+df["Answer - Ground Truth"] = df["Answer - Ground Truth"].apply(safe_convert_to_int)
+df["Answer - LLM"] = df["Answer - LLM"].apply(safe_convert_to_int)
 
-print(df['Answer - Ground Truth'])
-print(df['Answer - LLM'] )
+print(df["Answer - Ground Truth"])
+print(df["Answer - LLM"])
 
-correct_matches = sum(df['Answer - Ground Truth'] == df["Answer - LLM"])
+correct_matches = sum(df["Answer - Ground Truth"] == df["Answer - LLM"])
 accuracy = correct_matches / total_rows * 100
 
 
 print("correct_matches: ", correct_matches)
-print("accuracy: ",accuracy)
+print("accuracy: ", accuracy)
 # Create a DataFrame for script name and accuracy
-data = {'Script Name': ['mistral_instruct_gsm.py'], 'Accuracy': [accuracy]}
+data = {"Script Name": ["mistral_instruct_gsm.py"], "Accuracy": [accuracy]}
 accuracy_df = pd.DataFrame(data)
 
-#Save the DataFrame to a new CSV file
-accuracy_df.to_csv("/home/stud/abedinz1/localDisk/nlplab/data/gsm/accuracy.csv", mode='a', header=False, index=False)
+# Save the DataFrame to a new CSV file
+accuracy_df.to_csv(
+    "/home/stud/abedinz1/localDisk/nlplab/data/gsm/accuracy.csv",
+    mode="a",
+    header=False,
+    index=False,
+)
 
-print('Accuracy saved to accuracy.csv.')
+print("Accuracy saved to accuracy.csv.")

@@ -4,5 +4,5 @@ config.py
 reads
 sftp*
 *.json
-DS*
+.DS*
 *.csv
