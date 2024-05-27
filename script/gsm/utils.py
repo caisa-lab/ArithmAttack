@@ -78,3 +78,12 @@ def calculate_accuracy(output_file, name):
     )
 
     print("Accuracy saved to accuracy.csv.")
+
+
+
+def get_noisy_questions_and_answer_from_dataset(csv_file_path):
+    # Load the specific CSV file
+    data = pd.read_csv(csv_file_path)
+    questions = data["noisy_questions"].tolist()
+    groundTruths = data["numeric_answer"].tolist()
+    return questions,groundTruths
