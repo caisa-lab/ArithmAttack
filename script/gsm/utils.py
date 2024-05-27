@@ -1,5 +1,8 @@
 import pandas as pd
-import re
+import re, sys
+
+from config import access_token, DIR_PATH
+import math
 
 
 def get_questions_and_answer_from_dataset(csv_file_path):
@@ -11,3 +14,63 @@ def get_questions_and_answer_from_dataset(csv_file_path):
     groundTruths = data["numeric_answer"].tolist()
 
     return questions, groundTruths
+
+
+def calculate_accuracy(output_file, name):
+
+    print("Calculating accuracy")
+    # Read the CSV file into a pandas DataFrame
+    df = pd.read_csv(output_file)
+
+    # Calculate accuracy
+    total_rows = len(df)
+
+
+    def safe_convert_to_int(value):
+        #print("value: ",value)
+        try:
+            numbers = re.findall(r'\d+\.\d+|\d+', value)
+            if numbers:
+                last_number = numbers[-1]
+                return float(last_number)
+            else:
+                return sys.maxsize
+        except (ValueError, TypeError):
+            # Return a default value or handle the error as needed
+            return None
+
+
+
+    def safe_convert_llm_to_int(value):
+        numeric_value = safe_convert_to_int(value)
+        if numeric_value is not None and numeric_value > 192000000:
+            return sys.maxsize
+        return numeric_value
+
+    # Type cast both columns to float
+    df["Answer - Ground Truth"] = df["Answer - Ground Truth"].apply(safe_convert_to_int)
+    df["Answer - LLM"] = df["Answer - LLM"].apply(safe_convert_llm_to_int)
+    print(df["Answer - Ground Truth"])
+    print(df["Answer - LLM"])
+
+    correct_matches = sum(df["Answer - Ground Truth"] == df["Answer - LLM"])
+    accuracy = correct_matches / total_rows * 100
+
+
+
+
+    print("correct_matches: ", correct_matches)
+    print("accuracy: ", accuracy)
+    # Create a DataFrame for script name and accuracy
+    data = {"Script Name": [f"{name}.py"], "Accuracy": [accuracy]}
+    accuracy_df = pd.DataFrame(data)
+
+    # Save the DataFrame to a new CSV file
+    accuracy_df.to_csv(
+        f"{DIR_PATH}/data/gsm/accuracy.csv",
+        mode="a",
+        header=False,
+        index=False,
+    )
+
+    print("Accuracy saved to accuracy.csv.")
