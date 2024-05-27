@@ -28,8 +28,12 @@ def calculate_accuracy(output_file, name):
 
     def safe_convert_to_int(value):
         #print("value: ",value)
+        if isinstance(value, (int, float)): 
+            return float(value)
         try:
+            #print("value: ",value)
             numbers = re.findall(r'\d+\.\d+|\d+', value)
+            #print("numbers: ",numbers)
             if numbers:
                 last_number = numbers[-1]
                 return float(last_number)
