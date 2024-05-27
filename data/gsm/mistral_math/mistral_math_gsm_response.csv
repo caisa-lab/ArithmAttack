@@ -21025,7 +21025,7 @@ The answer is: 26",11.0
 Each sandwich requires 4 strips of jalapeno pepper, so 96 sandwiches * 4 strips/sandwich = 384 strips of jalapeno pepper.
 Since each jalapeno pepper makes 8 slices, 384 strips / 8 slices/pepper = 48 jalapeno peppers.
 Therefore, the Sandwich Shop requires 48 jalapeno peppers to serve all customers during an 8-hour day.",48.0
-"Three days' temperatures were recorded for Bucyrus, Ohio. The temperatures were -14 degrees Fahrenheit, -8 degrees Fahrenheit, and +1 degree Fahrenheit. What was the average number of degrees (Fahrenheit) in Bucyrus, Ohio on the 3 days recorded?",The average temperature is ( -14 + -8 + 1 ) / 3 = -21 / 3 = -7,nan
+"Three days' temperatures were recorded for Bucyrus, Ohio. The temperatures were -14 degrees Fahrenheit, -8 degrees Fahrenheit, and +1 degree Fahrenheit. What was the average number of degrees (Fahrenheit) in Bucyrus, Ohio on the 3 days recorded?",The average temperature is ( -14 + -8 + 1 ) / 3 = -21 / 3 = -7,-7
 "2 tablespoons of popcorn kernels will make 4 cups of popcorn.  For movie night, Joanie wants 3 cups of popcorn, Mitchell wants 4 cups of popcorn, Miles and Davis said they would split 6 cups of popcorn and Cliff said he would only eat 3 cups.  How many tablespoons of popcorn kernels will they need?","To solve this problem, we need to determine how many tablespoons of popcorn kernels they will need.
 We know that 2 tablespoons of popcorn kernels will make 4 cups of popcorn.
 Joanie wants 3 cups of popcorn, Mitchell wants 4 cups of popcorn, Miles and Davis want to split 6 cups of popcorn, and Cliff wants 3 cups of popcorn.
@@ -21514,7 +21514,7 @@ James streams on twitch.  He had 150 subscribers and then someone gifted 50 subs
 He gets $9 per subscriber, so he makes 200 * $9 = $1800 per month.
 The answer is: 1800",1800.0
 Sally had 14 fries at lunch. Her friend Mark gave her one-third of his 36 fries at lunch. How many fries did Sally have for lunch after that?,"Sally had 14 fries at lunch. Mark gave her one-third of his 36 fries, which is 36/3 = 12 fries. So Sally had 14 + 12 = 26 fries for lunch.",26.0
-There are 3 consecutive odd integers that have a sum of -147. What is the largest number?,The largest number is -147/3 = -49,nan
+There are 3 consecutive odd integers that have a sum of -147. What is the largest number?,The largest number is -147/3 = -49,-47
 "To raise funds for her local soup kitchen, Didi enlisted the help of her family, friends, and neighbors. They donated 10 same-size cakes that she sliced into 8 slices per cake and started selling a slice for $1. A local business owner was so impressed by Didi's efforts that she offered to donate 50 cents for each slice Didi sold. A second business owner also offered to donate a quarter for each slice sold. If Didi sold all the slices, how much money did she raise?","To raise funds for her local soup kitchen, Didi sold all the slices. Each slice was sold for $1. So, the total amount of money raised from selling the slices is 10 cakes * 8 slices per cake * $1 per slice = $80.
 The first business owner donated 50 cents for each slice sold, so the amount donated by the first business owner is $80 * 0.50 = $40.
 The second business owner donated a quarter for each slice sold, so the amount donated by the second business owner is $80 * 0.25 = $20.
@@ -22871,7 +22871,7 @@ He earns 5 * $40 = $200 for the third job.
 In total, Dino earns $200 + $600 + $200 = $1000.
 After deducting his expenses of $500, Dino has $1000 - $500 = $500 left at the end of the month.
 The answer is: 500",500.0
-"Four days' temperatures were recorded for Wayupnorth, Canada. The temperatures were: -36 degrees Fahrenheit, +13 degrees Fahrenheit, -15 degrees Fahrenheit, and -10 degrees Fahrenheit. What was the average number of degrees (Fahrenheit) in Wayupnorth, Canada on the 4 days recorded?",The average temperature is ( -36 + 13 + -15 + -10 ) / 4 = -48 / 4 = -12,nan
+"Four days' temperatures were recorded for Wayupnorth, Canada. The temperatures were: -36 degrees Fahrenheit, +13 degrees Fahrenheit, -15 degrees Fahrenheit, and -10 degrees Fahrenheit. What was the average number of degrees (Fahrenheit) in Wayupnorth, Canada on the 4 days recorded?",The average temperature is ( -36 + 13 + -15 + -10 ) / 4 = -48 / 4 = -12,-12
 Angela slept 6.5 hours every night in December. She decided she should get more sleep and began sleeping 8.5 hours a night in January. How much more sleep did Angela get in January?,"In December, Angela slept 6.5 hours every night, so she slept a total of 6.5 * 31 = 201.5 hours.
 In January, Angela slept 8.5 hours every night, so she slept a total of 8.5 * 31 = 263.5 hours.
 The difference in sleep between December and January is 263.5 - 201.5 = 62 hours.
