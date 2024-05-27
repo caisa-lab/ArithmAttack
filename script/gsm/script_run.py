@@ -2,10 +2,10 @@ import subprocess
 
 # List of scripts to run sequentially
 scripts = [
-    "python  /home/stud/abedinz1/localDisk/nlplab/script/gsm/mistral_gsm.py",
-    "python  /home/stud/abedinz1/localDisk/nlplab/script/gsm/mistral_instruct_gsm.py",
-    "python  /home/stud/abedinz1/localDisk/nlplab/script/gsm/mistral_math_gsm.py",
-    "python  /home/stud/abedinz1/localDisk/nlplab/script/gsm/flan_gsm.py"
+    "python  mistral_gsm.py",
+    "python  mistral_instruct_gsm.py",
+    "python  mistral_math_gsm.py",
+    "python  flan_gsm.py"
 ]
 
 # Run each script sequentially

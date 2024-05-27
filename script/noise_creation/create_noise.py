@@ -14,12 +14,12 @@ random.seed(0)
 PUNCTUATIONS = ['.', ',', '!', '?', ';', ':']
 #DATASETS = ['cr', 'sst2', 'subj', 'pc', 'trec']
 DATASET = '../../data/gsm'
-NUM_AUGS = [1, 2, 4, 8]
-PUNC_RATIO = 0.99
+# NUM_AUGS = [1, 2, 4, 8]
+PUNC_RATIO = [0.10,0.30,0.50]
 
 
 # Insert punction words into a given sentence with the given ratio "punc_ratio"
-def insert_punctuation_marks(sentence, punc_ratio=PUNC_RATIO):
+def insert_punctuation_marks(sentence, punc_ratio):
     words = sentence.split(' ')
     new_line = []
     q = random.randint(1, int(punc_ratio * len(words) + 1))
@@ -37,11 +37,9 @@ def insert_punctuation_marks(sentence, punc_ratio=PUNC_RATIO):
 
 def main(dataset):
     data_df = pd.read_csv(dataset + '/train_preprocessed.csv')
-    for aug in tqdm(NUM_AUGS):
-        data_df[f'noisy_questions_aug_{aug}'] = [[insert_punctuation_marks(question)
-                                       for _ in range(aug)] for question in
-                                      tqdm(data_df['question'])]
-    data_df.to_csv(f'../../data/noisy_datasets/gsm8k_noisy_punct_{int(PUNC_RATIO*100)}.csv',index=False)
+    for punct in tqdm(PUNC_RATIO):
+        data_df[f'noisy_questions'] = data_df['question'].progress_apply(lambda x: insert_punctuation_marks(x,punct))
+        data_df.to_csv(f'../../data/noisy_datasets/gsm8k_noisy_punct_{int(punct*100)}.csv',index=False)
 if __name__ == "__main__":
     #for dataset in DATASETS:
     main(DATASET)
