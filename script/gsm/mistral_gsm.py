@@ -11,6 +11,7 @@ import pandas as pd
 import re
 import random
 import sys, os, json
+import math
 
 from jsonformer import Jsonformer
 
@@ -18,109 +19,109 @@ from config import access_token
 from utils import get_questions_and_answer_from_dataset
 
 
-DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
-access_token = access_token
-model_name = "mistralai/Mistral-7B-v0.1"
-tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
+# DIR_PATH = "/home/stud/abedinz1/localDisk/nlplab"
+# access_token = access_token
+# model_name = "mistralai/Mistral-7B-v0.1"
+# tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
 
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_use_double_quant=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.bfloat16,
-)
+# bnb_config = BitsAndBytesConfig(
+#     load_in_4bit=True,
+#     bnb_4bit_use_double_quant=True,
+#     bnb_4bit_quant_type="nf4",
+#     bnb_4bit_compute_dtype=torch.bfloat16,
+# )
 
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    token=access_token,
-    device_map={"": 0},
-    quantization_config=bnb_config,
-)
+# model = AutoModelForCausalLM.from_pretrained(
+#     model_name,
+#     token=access_token,
+#     device_map={"": 0},
+#     quantization_config=bnb_config,
+# )
 
-model.config.use_cache = False
-model.config.pretraining_tp = 1
+# model.config.use_cache = False
+# model.config.pretraining_tp = 1
 
-json_schema1 = {
-    "type": "object",
-    "properties": {
-        "answer": {"type": "string"},
-    },
-}
+# json_schema1 = {
+#     "type": "object",
+#     "properties": {
+#         "answer": {"type": "string"},
+#     },
+# }
 
-csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+# csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
+# questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 
 output_file = (
     f"/home/stud/abedinz1/localDisk/nlplab/data/gsm/mistral/mistral_gsm_response.csv"
 )
-counter = 0
-with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
-    fieldnames = [
-        "Question",
-        "Answer - LLM",
-        "Answer - Ground Truth",
-    ]
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+# counter = 0
+# with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
+#     fieldnames = [
+#         "Question",
+#         "Answer - LLM",
+#         "Answer - Ground Truth",
+#     ]
+#     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-    writer.writeheader()
-    counter = 0
+#     writer.writeheader()
+#     counter = 0
 
-    json_format = {
-        "answer": {"<contains the correct numerical answer>"},
-    }
-    for question, ground_truth in zip(questions, ground_truths):
+#     json_format = {
+#         "answer": {"<contains the correct numerical answer>"},
+#     }
+#     for question, ground_truth in zip(questions, ground_truths):
 
-        prompt = f"""
-        [INST] 
-        persona:
-        You are an expert in math problem solving
+#         prompt = f"""
+#         [INST] 
+#         persona:
+#         You are an expert in math problem solving
         
-        goal:
-        Please answer the following question:   
+#         goal:
+#         Please answer the following question:   
 
-        Instruction:
-        Make sure to give answer as numerical value only.
+#         Instruction:
+#         Make sure to give answer as numerical value only.
 
-        question:
-        {question}
+#         question:
+#         {question}
         
-        format:
-        {json_format}
+#         format:
+#         {json_format}
 
 
-        [/INST]
-        """
+#         [/INST]
+#         """
 
-        jsonformer = Jsonformer(
-            model,
-            tokenizer,
-            json_schema1,
-            prompt,
-            max_string_token_length=600,
-        )
+#         jsonformer = Jsonformer(
+#             model,
+#             tokenizer,
+#             json_schema1,
+#             prompt,
+#             max_string_token_length=600,
+#         )
 
-        generated_data = jsonformer()
-        import pprint
+#         generated_data = jsonformer()
+#         import pprint
 
-        pprint.pprint(prompt)
-        print("##RESPONSE##")
-        pprint.pprint(generated_data)
+#         pprint.pprint(prompt)
+#         print("##RESPONSE##")
+#         pprint.pprint(generated_data)
 
-        writer.writerow(
-            {
-                "Question": question,
-                "Answer - Ground Truth": ground_truth,
-                "Answer - LLM": generated_data["answer"],
-            }
-        )
+#         writer.writerow(
+#             {
+#                 "Question": question,
+#                 "Answer - Ground Truth": ground_truth,
+#                 "Answer - LLM": generated_data["answer"],
+#             }
+#         )
 
-        # counter += 1
-        # if counter >= 1:
-        #     break
+#         # counter += 1
+#         # if counter >= 1:
+#         #     break
 
 
-print(f"Questions and answers saved to {output_file}")
+# print(f"Questions and answers saved to {output_file}")
 
 print("Calculating accuracy")
 # Read the CSV file into a pandas DataFrame
@@ -131,6 +132,14 @@ total_rows = len(df)
 
 
 def safe_convert_to_int(value):
+    print("value: ",value)
+    # Check for float NaN
+    if isinstance(value, float) and math.isnan(value):
+        return None
+    
+    # Check for string 'nan'
+    if isinstance(value, str) and value.lower() == 'nan':
+        return None
     if isinstance(
         value, (int, float)
     ):  # If the value is already an int or float, return it as int
