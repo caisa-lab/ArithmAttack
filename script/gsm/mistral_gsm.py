@@ -133,13 +133,7 @@ total_rows = len(df)
 
 def safe_convert_to_int(value):
     print("value: ",value)
-    # Check for float NaN
-    if isinstance(value, float) and math.isnan(value):
-        return None
-    
-    # Check for string 'nan'
-    if isinstance(value, str) and value.lower() == 'nan':
-        return None
+
     if isinstance(
         value, (int, float)
     ):  # If the value is already an int or float, return it as int
@@ -161,9 +155,16 @@ def safe_convert_to_int(value):
         return None
 
 
+
+def safe_convert_llm_to_int(value):
+    numeric_value = safe_convert_to_int(value)
+    if numeric_value is not None and numeric_value > 192000000:
+        return None
+    return numeric_value
+
 # Type cast both columns to float
 df["Answer - Ground Truth"] = df["Answer - Ground Truth"].apply(safe_convert_to_int)
-df["Answer - LLM"] = df["Answer - LLM"].apply(safe_convert_to_int)
+df["Answer - LLM"] = df["Answer - LLM"].apply(safe_convert_llm_to_int)
 print(df["Answer - Ground Truth"])
 print(df["Answer - LLM"])
 
