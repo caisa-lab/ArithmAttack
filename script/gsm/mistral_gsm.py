@@ -46,7 +46,7 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
+csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 
@@ -72,22 +72,10 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
 
         prompt = f"""
         [INST] 
-        persona:
-        You are an expert in math problem solving
-        
-        goal:
-        Please answer the following question:   
-
-        Instruction:
-        Make sure to give answer as numerical value only.
+        Let's think step by step and always end the answer with 'The final answer is'.
 
         question:
         {question}
-        
-        format:
-        {json_format}
-
-
         [/INST]
         """
 
@@ -96,9 +84,23 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             tokenizer,
             json_schema1,
             prompt,
-            max_string_token_length=600,
+            max_number_tokens=1000,
+            max_array_length=1000,
+            max_string_token_length=1000,
         )
+        # qa_pipeline = pipeline(
+        #     "text-generation",
+        #     model=model,
+        #     tokenizer=tokenizer,
+        #     max_length=1024,
+        #     do_sample=True,
+        #     top_k=10,
+        #     num_return_sequences=1,
+        #     max_new_tokens = 1000
+        # )
+        # sequences = qa_pipeline(prompt, eos_token_id=tokenizer.eos_token_id)
 
+        
         generated_data = jsonformer()
         import pprint
 
@@ -115,7 +117,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         # counter += 1
-        # if counter >= 1:
+        # if counter >= 10:
         #     break
 
 
