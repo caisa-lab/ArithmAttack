@@ -32,6 +32,7 @@ def calculate_accuracy(output_file, name):
             return float(value)
         try:
             #print("value: ",value)
+            value = value.replace(',', '')
             numbers = re.findall(r'\d+\.\d+|\d+', value)
             #print("numbers: ",numbers)
             if numbers:
