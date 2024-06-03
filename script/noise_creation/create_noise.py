@@ -5,6 +5,8 @@ import random
 from tqdm import tqdm
 import pandas as pd
 
+from config import DIR_PATH
+
 tqdm.pandas()
 
 random.seed(0)
@@ -36,10 +38,10 @@ def insert_punctuation_marks(sentence, punc_ratio):
 
 
 def main(dataset):
-    data_df = pd.read_csv(dataset + '/train_preprocessed.csv')
+    data_df = pd.read_csv(DIR_PATH + '/data/gsm/test_preprocessed.csv')
     for punct in tqdm(PUNC_RATIO):
         data_df[f'noisy_questions'] = data_df['question'].progress_apply(lambda x: insert_punctuation_marks(x,punct))
-        data_df.to_csv(f'../../data/noisy_datasets/gsm8k_noisy_punct_{int(punct*100)}.csv',index=False)
+        data_df.to_csv(f'{DIR_PATH}/data/noisy_datasets/gsm8k_test_noisy_punct_{int(punct*100)}.csv',index=False)
 if __name__ == "__main__":
     #for dataset in DATASETS:
     main(DATASET)

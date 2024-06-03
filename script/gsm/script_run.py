@@ -1,11 +1,12 @@
 import subprocess
+from config import DIR_PATH
 
 # List of scripts to run sequentially
 scripts = [
-    "python  mistral_gsm.py",
-    "python  mistral_instruct_gsm.py",
-    "python  mistral_math_gsm.py",
-    "python  flan_gsm.py"
+    f"python  {DIR_PATH}/script/gsm/mistral_gsm.py",
+    f"python  {DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
+    f"python  {DIR_PATH}/script/gsm/mistral_math_gsm.py",
+    f"python  {DIR_PATH}/script/gsm/flan_gsm.py"
 ]
 
 # Run each script sequentially
