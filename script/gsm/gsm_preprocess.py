@@ -1,8 +1,23 @@
 import pandas as pd
 import re
+import json
+
+
+# Initialize an empty list to hold the data
+data = []
+
+# Open the JSONL file and read line by line
+with open("/home/stud/abedinz1/localDisk/nlplab/data/gsm/test.jsonl", 'r') as file:
+    for line in file:
+        try:
+            data.append(json.loads(line))
+        except json.JSONDecodeError as e:
+            print(f"Error decoding JSON: {e}")
+            continue
+
 
 # Load the dataset
-df = pd.read_json("/home/stud/abedinz1/localDisk/nlplab/data/gsm/train.json")
+df = pd.DataFrame(data)
 
 def extract_numeric_answer(answer):
     # Use a regex pattern that matches an optional sign (+ or -) before the digits
@@ -13,7 +28,7 @@ def extract_numeric_answer(answer):
         return None
 
 df["numeric_answer"] = df["answer"].apply(extract_numeric_answer)
-df.to_csv("/home/stud/abedinz1/localDisk/nlplab/data/gsm/train_preprocessed.csv", index=False)
+df.to_csv("/home/stud/abedinz1/localDisk/nlplab/data/gsm/test_preprocessed.csv", index=False)
 
 # Display the preprocessed dataset
 print(df.head())
