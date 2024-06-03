@@ -45,7 +45,7 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/gsm/train_preprocessed.csv"
+csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 #TODO: Change to relative path
@@ -69,24 +69,10 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
 
         prompt = f"""
         [INST] 
-        persona:
-        You are an expert in math problem solving
-        
-        goal:
-        Please answer the following question:   
-
-        Instruction:
-        Make sure to give answer as numerical value only.
+        Let's think step by step and always end the answer with 'The final answer is'.
 
         question:
         {question}
-        
-        format:
-        Use the following format for response:
-        {json_format}
-
-        Please return only a integer or float as response, Response should not contain only numerical value
-
         [/INST]
         """
         jsonformer = Jsonformer(
@@ -94,7 +80,9 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             tokenizer,
             json_schema1,
             prompt,
-            max_string_token_length=1600,
+            max_number_tokens=1000,
+            max_array_length=1000,
+            max_string_token_length=1000,
         )
 
         generated_data = jsonformer()
