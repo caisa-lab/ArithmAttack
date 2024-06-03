@@ -8,6 +8,7 @@ import re
 import random
 import sys, os, json
 
+from tqdm import tqdm
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
@@ -25,8 +26,7 @@ json_schema1 = {
         "answer": {"type": "string"},
     },
 }
-
-csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
+csv_file = f"{DIR_PATH}/data/noisy_datasets/gsm8k_test_noisy_punct_10.csv"
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 
@@ -48,7 +48,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     json_format = {
         "answer": {"<contains the correct numerical answer>"},
     }
-    for question, ground_truth in zip(questions, ground_truths):
+    for question, ground_truth in tqdm(zip(questions, ground_truths), total=len(questions)):
 
         # prompt = f"""
         # [INST] 
@@ -92,9 +92,9 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         generated_data = jsonformer()
         import pprint
 
-        pprint.pprint(prompt)
-        print("##RESPONSE##")
-        pprint.pprint(generated_data)
+        #pprint.pprint(prompt)
+        #print("##RESPONSE##")
+        #pprint.pprint(generated_data)
 
         writer.writerow(
             {
