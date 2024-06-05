@@ -87,6 +87,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             max_number_tokens=1000,
             max_array_length=1000,
             max_string_token_length=1000,
+            temperature = 0
         )
         # qa_pipeline = pipeline(
         #     "text-generation",
