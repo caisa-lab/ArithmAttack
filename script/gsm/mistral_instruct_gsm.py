@@ -16,7 +16,7 @@ from tqdm import tqdm
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_noisy_questions_and_answer_from_dataset
+from utils import get_noisy_questions_and_answer_from_multi_arith_dataset
 
 
 access_token = access_token
@@ -47,11 +47,13 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/noisy_datasets/gsm8k_test_noisy_punct_10.csv"
-questions, ground_truths = get_noisy_questions_and_answer_from_dataset(csv_file)
+csv_file = f"{DIR_PATH}/data/noisy_datasets/multiArith_test_noisy_punct_10.csv"
+questions, ground_truths = get_noisy_questions_and_answer_from_multi_arith_dataset(csv_file)
 
 
-output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
+
+
+output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_multiArith_response.csv"
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
@@ -107,7 +109,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             max_number_tokens=1000,
             max_array_length=1000,
             max_string_token_length=1000,
-            temperature=0
+            temperature = 0
         )
 
         generated_data = jsonformer()
