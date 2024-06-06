@@ -16,7 +16,7 @@ from tqdm import tqdm
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_questions_and_answer_from_dataset
+from utils import get_noisy_questions_and_answer_from_dataset
 
 
 access_token = access_token
@@ -47,7 +47,7 @@ json_schema1 = {
 }
 
 csv_file = f"{DIR_PATH}/data/noisy_datasets/gsm8k_test_noisy_punct_10.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+questions, ground_truths = get_noisy_questions_and_answer_from_dataset(csv_file)
 
 #TODO: Change to relative path
 output_file = f"{DIR_PATH}/data/gsm/mistral_math/mistral_math_gsm_response.csv"

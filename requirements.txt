@@ -6,3 +6,6 @@ transformers
 pandas
 bitsandbytes
 jsonformer
+protobuf
+sentencepiece
+setuptools
