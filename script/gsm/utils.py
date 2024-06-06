@@ -15,6 +15,15 @@ def get_questions_and_answer_from_dataset(csv_file_path):
 
     return questions, groundTruths
 
+def get_questions_and_answer_from_multiArith_dataset(csv_file_path):
+    # Load the specific CSV file
+    data = pd.read_csv(csv_file_path)
+
+    # Extract the question column
+    questions = data["question"].tolist()
+    groundTruths = data["answer"].tolist()
+
+    return questions, groundTruths
 
 def calculate_accuracy(output_file, name):
 

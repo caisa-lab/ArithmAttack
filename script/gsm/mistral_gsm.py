@@ -16,7 +16,7 @@ import math
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_questions_and_answer_from_dataset
+from utils import get_questions_and_answer_from_multiArith_dataset
 
 access_token = access_token
 model_name = "mistralai/Mistral-7B-v0.1"
@@ -46,12 +46,12 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
+questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
 
 
 output_file = (
-    f"{DIR_PATH}/data/gsm/mistral/mistral_gsm_response.csv"
+    f"{DIR_PATH}/data/multiArith/mistral/mistral_multiArith_response.csv"
 )
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:

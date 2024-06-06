@@ -11,7 +11,7 @@ import sys, os, json
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_questions_and_answer_from_dataset
+from utils import get_questions_and_answer_from_multiArith_dataset
 
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xl")
 model = T5ForConditionalGeneration.from_pretrained(
@@ -26,12 +26,12 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
+questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
 
 
 output_file = (
-    f"{DIR_PATH}/data/gsm/flan/flan_gsm_response.csv"
+    f"{DIR_PATH}/data/multiArith/flan/flan_gsm_response.csv"
 )
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:

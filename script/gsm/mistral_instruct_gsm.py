@@ -15,7 +15,7 @@ import sys, os, json
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_questions_and_answer_from_dataset
+from utils import get_questions_and_answer_from_multiArith_dataset
 
 
 access_token = access_token
@@ -46,11 +46,11 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
+questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
 
 
-output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
+output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_gsm_response.csv"
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
