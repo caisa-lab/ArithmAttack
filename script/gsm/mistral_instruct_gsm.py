@@ -15,7 +15,9 @@ import sys, os, json
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_questions_and_answer_from_multiArith_dataset
+from utils import (
+    get_questions_and_answer_from_multiArith_dataset,
+    get_questions_and_answer_from_dataset)
 
 
 access_token = access_token
@@ -46,11 +48,15 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
+#csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
+csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
+
+#uestions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
+questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 
-output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_gsm_response.csv"
+#output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_multiArith_response.csv"
+output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
@@ -69,26 +75,6 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     }
     for question, ground_truth in zip(questions, ground_truths):
 
-        # prompt = f"""
-        # [INST] 
-        # persona:
-        # You are an expert in math problem solving
-        
-        # goal:
-        # Please answer the following question:   
-
-        # Instruction:
-        # Make sure to give answer as numerical value only.
-
-        # question:
-        # {question}
-        
-        # format:
-        # {json_format}
-
-
-        # [/INST]
-        # """
         prompt = f"""
         [INST] 
         Let's think step by step and always end the answer with 'The final answer is'.
@@ -110,8 +96,8 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         generated_data = jsonformer()
+        
         import pprint
-
         pprint.pprint(prompt)
         print("##RESPONSE##")
         pprint.pprint(generated_data)

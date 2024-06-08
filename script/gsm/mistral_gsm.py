@@ -16,7 +16,9 @@ import math
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_questions_and_answer_from_multiArith_dataset
+from utils import (
+    get_questions_and_answer_from_multiArith_dataset,
+    get_questions_and_answer_from_dataset)
 
 access_token = access_token
 model_name = "mistralai/Mistral-7B-v0.1"
@@ -46,13 +48,20 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
-questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
+#csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
+csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
 
 
+#uestions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
+questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+
+# output_file = (
+#     f"{DIR_PATH}/data/multiArith/mistral/mistral_multiArith_response.csv"
+# )
 output_file = (
-    f"{DIR_PATH}/data/multiArith/mistral/mistral_multiArith_response.csv"
+    f"{DIR_PATH}/data/gsm/mistral/mistral_gsm_response.csv"
 )
+
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [
@@ -68,6 +77,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     json_format = {
         "answer": {"<contains the correct numerical answer>"},
     }
+
     for question, ground_truth in zip(questions, ground_truths):
 
         prompt = f"""
@@ -89,22 +99,10 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             max_string_token_length=1000,
             temperature = 0
         )
-        # qa_pipeline = pipeline(
-        #     "text-generation",
-        #     model=model,
-        #     tokenizer=tokenizer,
-        #     max_length=1024,
-        #     do_sample=True,
-        #     top_k=10,
-        #     num_return_sequences=1,
-        #     max_new_tokens = 1000
-        # )
-        # sequences = qa_pipeline(prompt, eos_token_id=tokenizer.eos_token_id)
-
         
         generated_data = jsonformer()
+        
         import pprint
-
         pprint.pprint(prompt)
         print("##RESPONSE##")
         pprint.pprint(generated_data)
