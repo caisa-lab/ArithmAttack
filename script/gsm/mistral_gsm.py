@@ -17,7 +17,7 @@ from tqdm import tqdm
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_noisy_questions_and_answer_from_multi_arith_dataset
+from utils import get_noisy_questions_and_answer_from_dataset
 
 access_token = access_token
 model_name = "mistralai/Mistral-7B-v0.1"
@@ -47,11 +47,11 @@ json_schema1 = {
     },
 }
 
-csv_file = f"{DIR_PATH}/data/noisy_datasets/multiArith_test_noisy_punct_10.csv"
-questions, ground_truths = get_noisy_questions_and_answer_from_multi_arith_dataset(csv_file)
+csv_file = f"{DIR_PATH}/data/noisy_datasets/gsm8k_test_noisy_punct_50.csv"
+questions, ground_truths = get_noisy_questions_and_answer_from_dataset(csv_file)
 
 output_file = (
-    f"{DIR_PATH}/data/multiArith/mistral/mistral_multiArith_response.csv"
+    f"{DIR_PATH}/data/gsm/mistral/mistral_gsm_response_50.csv"
 )
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:

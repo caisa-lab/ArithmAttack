@@ -12,7 +12,7 @@ from tqdm import tqdm
 from jsonformer import Jsonformer
 
 from config import access_token, DIR_PATH
-from utils import get_noisy_questions_and_answer_from_multi_arith_dataset
+from utils import get_noisy_questions_and_answer_from_dataset
 
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xl")
 model = T5ForConditionalGeneration.from_pretrained(
@@ -26,12 +26,12 @@ json_schema1 = {
         "answer": {"type": "string"},
     },
 }
-csv_file = f"{DIR_PATH}/data/noisy_datasets/multiArith_test_noisy_punct_10.csv"
-questions, ground_truths = get_noisy_questions_and_answer_from_multi_arith_dataset(csv_file)
+csv_file = f"{DIR_PATH}/data/noisy_datasets/gsm8k_test_noisy_punct_50.csv"
+questions, ground_truths = get_noisy_questions_and_answer_from_dataset(csv_file)
 
 
 output_file = (
-    f"{DIR_PATH}/data/multiArith/flan/flan_multiArith_response.csv"
+    f"{DIR_PATH}/data/gsm/flan/flan_gsm_response_50.csv"
 )
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
