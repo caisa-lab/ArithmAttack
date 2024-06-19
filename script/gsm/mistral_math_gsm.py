@@ -93,8 +93,8 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
                 "Answer - LLM": generated_data,
             }
         )
-        counter += 1
-        if counter >= 4:
-            break
+        # counter += 1
+        # if counter >= 4:
+        #     break
 
 print(f"Questions and answers saved to {output_file}")
