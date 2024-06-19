@@ -1,6 +1,8 @@
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import csv
+import sys
+
 from config import access_token, DIR_PATH
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
@@ -28,6 +30,9 @@ output_file = (
     f"{DIR_PATH}/data/gsm/flan/flan_gsm_response_hugginface.csv"
 )
 
+# Command line arguments for prompts
+if len(sys.argv) > 1:
+    prompt = sys.argv[1:]  # Assume each argument is a separate prompt
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
@@ -47,7 +52,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             {
                 "role": "user", 
                 "content": f"""
-                    Let's think step by step and always end the answer with 'The final answer is'.
+                    {prompt}
                     question:
                     {question}
                 """
@@ -59,6 +64,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         generated_data=tokenizer.batch_decode(generated_ids)[0]
         
         import pprint
+        print("##MESSAGE##")
         pprint.pprint(messages)
         print("##RESPONSE##")
         pprint.pprint(generated_data)

@@ -1,4 +1,6 @@
 import torch
+import sys
+
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
@@ -45,6 +47,10 @@ questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 #output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
 output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response_hugginface.csv"
 
+# Command line arguments for prompts
+if len(sys.argv) > 1:
+    prompt = sys.argv[1:]  # Assume each argument is a separate prompt
+
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [
@@ -63,7 +69,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             {
                 "role": "user", 
                 "content": f"""
-                    Let's think step by step and always end the answer with 'The final answer is'.
+                    {prompt}
                     question:
                     {question}
                 """
@@ -74,10 +80,11 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
         generated_data=tokenizer.batch_decode(generated_ids)[0]
 
-        # import pprint
-        # pprint.pprint(messages)
-        # print("##RESPONSE##")
-        # pprint.pprint(generated_data)
+        import pprint
+        print("##MESSAGE##")
+        pprint.pprint(messages)
+        print("##RESPONSE##")
+        pprint.pprint(generated_data)
 
         writer.writerow(
             {
