@@ -1,0 +1,70 @@
+Question,Answer - LLM,Answer - Ground Truth
+Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?,"<s> [INST] 
+                    Let's think step by step and always end the answer with 'The final answer is'.
+                    question:
+                    Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+                 [/INST] Step 1: Find out how many eggs Janet has left after consumption and baking.
+Janet uses 3 eggs for breakfast and 4 eggs for baking muffins. So she uses 7 eggs per day.
+
+Step 2: Calculate how many eggs are left for sale.
+Janet lays 16 eggs per day. She uses 7 eggs for personal use, so she has 16 - 7 = <<16-7=9>>9 eggs left for sale.
+
+Step 3: Find out how much money Janet makes by selling these eggs.
+Janet sells each egg for $2, so she makes 9 eggs * $2/egg = $<<9*2=18>>18 per day.
+
+The final answer is: Janet makes $18 in dollars every day at the farmers' market.</s>",18
+A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?,"<s> [INST] 
+                    Let's think step by step and always end the answer with 'The final answer is'.
+                    question:
+                    A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+                 [/INST] To find the total number of bolts needed for the robe, we need to calculate the amount of each color fiber separately and then add the results together.
+
+First, let's find out how many bolts of blue fiber are required:
+
+1 bolt of blue fiber for the robe
+Therefore, the robe takes 2 bolts of blue fiber (since 1 bolt is used, and 2 bolts are needed)
+
+Next, let's find out how many bolts of white fiber are required:
+
+Half of the amount of blue fiber is needed for white fiber
+2 bolts of blue fiber → 1 bolt of blue fiber = 2 bolts
+So, half that much white fiber is 1 bolt, which makes 2 bolts for the entire robe.
+
+The final answer is that it takes a total of 2 + 2 = 4 bolts to make the robe.</s>",3
+"Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?","<s> [INST] 
+                    Let's think step by step and always end the answer with 'The final answer is'.
+                    question:
+                    Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?
+                 [/INST] To find out how much profit Josh made, we first need to determine the new value of the house after the repairs. We know that the repairs increased the value by 150%, so:
+
+New value of the house = Original value + (Original value * 150%)
+New value of the house = $80,000 + ($80,000 * 0.15)
+
+Calculate the value: $80,000 + ($80,000 * 0.15)
+
+= $80,000 + $12,000
+
+= $92,000
+
+Now that we know the new value of the house, we can calculate the profit by subtracting the original cost and the repair costs:
+
+Profit = New value - (Original cost + Repairs cost)
+
+Calculate the profit: $92,000 - ($80,000 + $50,000)
+
+= $92,000 - $130,000
+
+= -$38,000
+
+However, this result indicates a loss, but we know that the question refers to a profit. This means there's a mistake in the given information. Double-checking the numbers in the problem, it seems that the 150% increase should have been a profit margin instead of the actual increase in value. So, instead of the new value being 150% of the original value, the profit should be equal to 150% of the repairs cost.
+
+Therefore, the problem statement is incorrect. The final answer cannot be given based on the given information.</s>",70000
+James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meters does he run a week?,"<s> [INST] 
+                    Let's think step by step and always end the answer with 'The final answer is'.
+                    question:
+                    James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meters does he run a week?
+                 [/INST] Step 1: James runs 3 sprints per session.
+Step 2: Each sprint is 60 meters long.
+Step 3: He runs this distance 3 times a week.
+
+The final answer is: James runs a total of 3 sprints/session * 60 meters/sprint * 3 sessions/week = 180 meters/week.</s>",540

@@ -1,15 +1,6 @@
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
-
 import csv
-import zipfile
-import pandas as pd
-import re
-import random
-import sys, os, json
-
-from jsonformer import Jsonformer
-
 from config import access_token, DIR_PATH
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
@@ -21,24 +12,22 @@ model = T5ForConditionalGeneration.from_pretrained(
 )
 
 
-json_schema1 = {
-    "type": "object",
-    "properties": {
-        "answer": {"type": "string"},
-    },
-}
-
 #csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
 csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
+
 #questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 
 # output_file = (
 #     f"{DIR_PATH}/data/multiArith/flan/flan_multiArith_response.csv"
 # )
+# output_file = (
+#     f"{DIR_PATH}/data/gsm/flan/flan_gsm_response.csv"
+# )
 output_file = (
-    f"{DIR_PATH}/data/gsm/flan/flan_gsm_response.csv"
+    f"{DIR_PATH}/data/gsm/flan/flan_gsm_response_hugginface.csv"
 )
+
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
@@ -52,34 +41,25 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     writer.writeheader()
     counter = 0
 
-    json_format = {
-        "answer": {"<contains the correct numerical answer>"},
-    }
     for question, ground_truth in zip(questions, ground_truths):
 
-        prompt = f"""
-        [INST] 
-        Let's think step by step and always end the answer with 'The final answer is'.
+        messages = [
+            {
+                "role": "user", 
+                "content": f"""
+                    Let's think step by step and always end the answer with 'The final answer is'.
+                    question:
+                    {question}
+                """
+            }
+        ]
 
-        question:
-        {question}
-        [/INST]
-        """
-        jsonformer = Jsonformer(
-            model,
-            tokenizer,
-            json_schema1,
-            prompt,
-            max_number_tokens=1000,
-            max_array_length=1000,
-            max_string_token_length=1000,
-            temperature = 0
-        )
-
-        generated_data = jsonformer()
+        model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
+        generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
+        generated_data=tokenizer.batch_decode(generated_ids)[0]
         
         import pprint
-        pprint.pprint(prompt)
+        pprint.pprint(messages)
         print("##RESPONSE##")
         pprint.pprint(generated_data)
 
@@ -87,13 +67,13 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             {
                 "Question": question,
                 "Answer - Ground Truth": ground_truth,
-                "Answer - LLM": generated_data["answer"],
+                "Answer - LLM": generated_data,
             }
         )
 
-        # counter += 1
-        # if counter >= 4:
-        #     break
+        counter += 1
+        if counter >= 4:
+            break
 
 
 print(f"Questions and answers saved to {output_file}")
