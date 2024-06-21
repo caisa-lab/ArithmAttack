@@ -1,17 +1,20 @@
 import subprocess
 from config import DIR_PATH
+import os
+
 
 # List of scripts to run sequentially
 scripts = [
-    f"{DIR_PATH}/script/gsm/mistral_gsm.py",
-    f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
-    f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
-    f"{DIR_PATH}/script/gsm/flan_gsm.py"
+    f"{DIR_PATH}script/gsm/mistral_gsm.py",
+    f"{DIR_PATH}script/gsm/mistral_instruct_gsm.py",
+    f"{DIR_PATH}script/gsm/mistral_math_gsm.py",
+    f"{DIR_PATH}script/gsm/flan_gsm.py"
 ]
 
 prompts = [
+    "Always end the answer with {The final answer is}",
     "Let's think step by step and always end the answer with {The final answer is}.",
-    " Always end the answer with {The final answer is} and think step by step.",
+    "Always end the answer with {The final answer is} and think step by step.",
 ]
 
 # Function to create a command with prompts
@@ -24,11 +27,14 @@ def create_command(script, prompt):
 
 # Run each script sequentially with the prompts
 for script in scripts:
-    for prompt in prompts:
+    for i, prompt in enumerate(prompts):
+        sc_name = os.path.splitext(os.path.basename(script))[0]
+        print(sc_name)
         print("$$")
         print("Running:", script)
         # Create the command with the current script and all prompts
-        command = create_command(script, prompt)
+        cmd_line_args = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv {DIR_PATH}data/gsm/sample_responses/{sc_name}_prompt_{i} {prompt}"
+        command = create_command(script,cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)
 

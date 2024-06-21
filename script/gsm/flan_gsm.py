@@ -4,6 +4,10 @@ import csv
 import sys
 
 from config import access_token, DIR_PATH
+
+from tqdm import tqdm
+
+
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
     get_questions_and_answer_from_dataset)
@@ -16,16 +20,27 @@ model = T5ForConditionalGeneration.from_pretrained(
 
 
 
-# Command line arguments for prompts
-if len(sys.argv) > 1:
-    prompt = sys.argv[1:]  # Assume each argument is a separate prompt
+args = sys.argv[1].split()
+
+input_file = args[0]
+output_file = args[1]
+prompt = ' '.join(args[2:])
+
+print('Input file ',input_file)
+print('Output file ',output_file)
+print('Prompt ',prompt)
+
+
+# # Command line arguments for prompts
+# if len(sys.argv) > 1:
+#     prompt = sys.argv[1:]  # Assume each argument is a separate prompt
 
 
 #csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
-csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
+# csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
 #questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
-questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
+questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
 
 # output_file = (
 #     f"{DIR_PATH}/data/multiArith/flan/flan_multiArith_response.csv"
@@ -33,9 +48,9 @@ questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 # output_file = (
 #     f"{DIR_PATH}/data/gsm/flan/flan_gsm_response.csv"
 # )
-output_file = (
-    f"{DIR_PATH}/data/gsm/flan/flan_gsm_response_hugginface.csv"
-)
+# output_file = (
+#     f"{DIR_PATH}/data/gsm/flan/flan_gsm_response_hugginface.csv"
+# )
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
@@ -49,7 +64,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     writer.writeheader()
     counter = 0
 
-    for question, ground_truth in zip(questions, ground_truths):
+    for question, ground_truth in tqdm(zip(questions, ground_truths), total=len(questions)):
 
         messages = [
             {
@@ -66,11 +81,11 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
         generated_data=tokenizer.batch_decode(generated_ids)[0]
         
-        import pprint
-        print("##MESSAGE##")
-        pprint.pprint(messages)
-        print("##RESPONSE##")
-        pprint.pprint(generated_data)
+        # import pprint
+        # print("##MESSAGE##")
+        # pprint.pprint(messages)
+        # print("##RESPONSE##")
+        # pprint.pprint(generated_data)
 
         writer.writerow(
             {
