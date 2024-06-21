@@ -34,7 +34,7 @@ model.config.use_cache = False
 model.config.pretraining_tp = 1
 
 #csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
-csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
+csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
 #questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)

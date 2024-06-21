@@ -1,16 +1,17 @@
 import subprocess
+from config import DIR_PATH
 
 # List of scripts to run sequentially
 scripts = [
-    "mistral_gsm.py",
-    "mistral_instruct_gsm.py",
-    "mistral_math_gsm.py",
-    "flan_gsm.py"
+    f"{DIR_PATH}/script/gsm/mistral_gsm.py",
+    f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
+    f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
+    f"{DIR_PATH}/script/gsm/flan_gsm.py"
 ]
 
 prompts = [
     "Let's think step by step and always end the answer with {The final answer is}.",
-    "What is the capital of France?",
+    " Always end the answer with {The final answer is} and think step by step.",
 ]
 
 # Function to create a command with prompts

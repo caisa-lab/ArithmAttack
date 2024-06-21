@@ -14,8 +14,15 @@ model = T5ForConditionalGeneration.from_pretrained(
 )
 
 
+
+
+# Command line arguments for prompts
+if len(sys.argv) > 1:
+    prompt = sys.argv[1:]  # Assume each argument is a separate prompt
+
+
 #csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
-csv_file = f"{DIR_PATH}/data/gsm/test_preprocessed.csv"
+csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
 #questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(csv_file)
 questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
@@ -29,10 +36,6 @@ questions, ground_truths = get_questions_and_answer_from_dataset(csv_file)
 output_file = (
     f"{DIR_PATH}/data/gsm/flan/flan_gsm_response_hugginface.csv"
 )
-
-# Command line arguments for prompts
-if len(sys.argv) > 1:
-    prompt = sys.argv[1:]  # Assume each argument is a separate prompt
 
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
