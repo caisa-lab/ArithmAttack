@@ -5,8 +5,8 @@ import os
 
 # List of scripts to run sequentially
 scripts = [
-    f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
     f"{DIR_PATH}/script/gsm/mistral_gsm.py",
+    f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
     f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
     f"{DIR_PATH}/script/gsm/flan_gsm.py"
 ]

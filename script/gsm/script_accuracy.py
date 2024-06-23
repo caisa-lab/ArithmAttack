@@ -30,8 +30,8 @@ prompts = [
     # Call the calculate_accuracy function for each output file
 
 
-#dir_names = ['mistral','mistral_instruct','mistral_math','flan']
-dir_names = ['mistral']
+dir_names = ['mistral','mistral_instruct','mistral_math','flan']
+#dir_names = ['mistral']
 
 for dir_name in dir_names:
     for i, _ in enumerate(prompts):
