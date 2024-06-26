@@ -4,6 +4,7 @@ import csv
 import sys
 
 from config import access_token, DIR_PATH
+from jsonformer import Jsonformer
 
 from tqdm import tqdm
 
@@ -16,9 +17,12 @@ tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xl")
 model = T5ForConditionalGeneration.from_pretrained(
     "google/flan-t5-xl", device_map={"": 0}, max_length=512
 )
-
-
-
+json_schema1 = {
+    "type": "object",
+    "properties": {
+        "answer": {"type": "string"},
+    },
+}
 
 args = sys.argv[1].split()
 
@@ -66,26 +70,32 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
 
     for question, ground_truth in tqdm(zip(questions, ground_truths), total=len(questions)):
 
-        messages = [
-            {
-                "role": "user", 
-                "content": f"""
-                    {prompt}
-                    question:
-                    {question}
-                """
-            }
-        ]
+        final_prompt = f"""
+        [INST] 
+        {prompt}
 
-        model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
-        generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
-        generated_data=tokenizer.batch_decode(generated_ids)[0]
-        
-        # import pprint
-        # print("##MESSAGE##")
-        # pprint.pprint(messages)
-        # print("##RESPONSE##")
-        # pprint.pprint(generated_data)
+        question:
+        {question}
+        [/INST]
+        """
+
+        jsonformer = Jsonformer(
+            model,
+            tokenizer,
+            json_schema1,
+            final_prompt,
+            max_number_tokens=1000,
+            max_array_length=1000,
+            max_string_token_length=1000,
+            temperature = 0
+        )
+        generated_data = jsonformer()  
+       
+        import pprint
+        pprint.pprint(final_prompt)
+        print("##RESPONSE##")
+        pprint.pprint(generated_data)
+        print("\n\n")
 
         writer.writerow(
             {
@@ -95,9 +105,9 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             }
         )
 
-        # counter += 1
-        # if counter >= 2:
-        #     break
+        counter += 1
+        if counter >= 5:
+            break
 
 
 print(f"Questions and answers saved to {output_file}")
