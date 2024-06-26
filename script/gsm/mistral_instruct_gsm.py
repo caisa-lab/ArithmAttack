@@ -11,11 +11,17 @@ import csv
 from config import access_token, DIR_PATH
 
 from tqdm import tqdm
-
+from jsonformer import Jsonformer
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
     get_questions_and_answer_from_dataset)
 
+json_schema1 = {
+    "type": "object",
+    "properties": {
+        "answer": {"type": "string"},
+    },
+}
 
 access_token = access_token
 model_name = "mistralai/Mistral-7B-Instruct-v0.2"
@@ -79,26 +85,32 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
 
     for question, ground_truth in tqdm(zip(questions, ground_truths), total=len(questions)):
 
-        messages = [
-            {
-                "role": "user", 
-                "content": f"""
-                    {prompt}
-                    question:
-                    {question}
-                """
-            }
-        ]
-        
-        model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
-        generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
-        generated_data=tokenizer.batch_decode(generated_ids)[0]
+        final_prompt = f"""
+        [INST] 
+        {prompt}
 
-        # import pprint
-        # print("##MESSAGE##")
-        # pprint.pprint(messages)
-        # print("##RESPONSE##")
-        # pprint.pprint(generated_data)
+        question:
+        {question}
+        [/INST]
+        """
+
+        jsonformer = Jsonformer(
+            model,
+            tokenizer,
+            json_schema1,
+            final_prompt,
+            max_number_tokens=1000,
+            max_array_length=1000,
+            max_string_token_length=1000,
+            temperature = 0
+        )
+        generated_data = jsonformer()  
+       
+        import pprint
+        pprint.pprint(final_prompt)
+        print("##RESPONSE##")
+        pprint.pprint(generated_data)
+        print("\n\n")
 
         writer.writerow(
             {
@@ -109,7 +121,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         # counter += 1
-        # if counter >= 2:
+        # if counter >= 5:
         #     break
 
 
