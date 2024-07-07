@@ -17,7 +17,7 @@ from utils import (
 json_schema1 = {
     "type": "object",
     "properties": {
-        "answer": {"type": "string"},
+        "answer": {"type": "number"},
     },
 }
 
@@ -89,8 +89,10 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         [INST] 
         {prompt}
 
-        question:
+        ### question ###
         {question}
+
+        ### answer ###
         [/INST]
         """
 
@@ -99,9 +101,9 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             tokenizer,
             json_schema1,
             final_prompt,
-            max_number_tokens=1000,
-            max_array_length=1000,
-            max_string_token_length=1000,
+            max_number_tokens=5000,
+            max_array_length=5000,
+            max_string_token_length=5000,
             temperature = 0
         )
         generated_data = jsonformer()  
@@ -120,8 +122,8 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             }
         )
 
-        # counter += 1
-        # if counter >= 5:
-        #     break
+        counter += 1
+        if counter >= 1:
+            break
 
 print(f"Questions and answers saved to {output_file}")
