@@ -18,8 +18,8 @@ prompts = [
     "Solve the following arithmetic problem step by step. Ensure to end the answer with 'The final answer is'.",
     "You are a math tutor. Solve the following arithmetic problem step by step. Always end the answer with 'The final answer is'.",
     "Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with 'The final answer is'.",
-    "As a math tutor, explain your reasoning step by step for the following problem. Let's think step by step and end the answer with 'The final answer is'."
-    "Answer the following questions. Give short answers."
+    "As a math tutor, explain your reasoning step by step for the following problem. Let's think step by step and end the answer with 'The final answer is'.",
+    "Answer the following questions. Give short answers.",
 ]
 
 
