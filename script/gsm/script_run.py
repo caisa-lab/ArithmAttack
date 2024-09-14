@@ -8,6 +8,7 @@ scripts = [
     f"{DIR_PATH}/script/gsm/mistral_gsm.py",
     f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
     f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
+    f"{DIR_PATH}/script/gsm/llama_gsm.py",
     f"{DIR_PATH}/script/gsm/flan_gsm.py"
 ]
 
@@ -32,7 +33,7 @@ def create_command(script, prompt):
     return command
 
 # Make sure this is in sync with the script order
-dir_name = ['mistral','mistral_instruct','mistral_math','flan']
+dir_name = ['mistral','mistral_instruct','mistral_math','llama','flan']
 
 # Run each script sequentially with the prompts
 for script_pointer, script in enumerate(scripts):
