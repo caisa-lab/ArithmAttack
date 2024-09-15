@@ -24,7 +24,7 @@ def create_command(script, prompt):
     return command
 
 # Make sure this is in sync with the script order
-dir_name = ['mistral_instruct','mistral_math','llama']
+dir_name = ['llama','mistral_instruct','mistral_math']
 
 # Run each script sequentially with the prompts
 for script_pointer, script in enumerate(scripts):
