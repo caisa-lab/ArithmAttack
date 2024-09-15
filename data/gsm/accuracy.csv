@@ -14,3 +14,6 @@ flan_gsm.py,2.577710386656558
 mistral_gsm.py,8.188021228203183
 mistral_instruct.py,8.41546626231994
 mistral_math.py,26.004548900682334
+mistral_instruct.py,5.54290053151101
+mistral_math.py,3.125
+llama.py,7.354056103108415
