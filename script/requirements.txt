@@ -12,4 +12,4 @@ vllm
 fraction
 protobuf
 scipy
-
+protobuf
