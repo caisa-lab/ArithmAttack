@@ -62,14 +62,17 @@ def calculate_accuracy(output_file, name):
         return numeric_value
 
     # Type cast both columns to float
-    df["Answer - Ground Truth"] = df["Answer - Ground Truth"].apply(safe_convert_to_int)
-    df["Answer - LLM"] = df["Answer - LLM"].apply(safe_convert_llm_to_int)
-    print(df["Answer - Ground Truth"])
-    print(df["Answer - LLM"])
+    df["Answer - Ground Truth Converted"] = df["Answer - Ground Truth"].apply(safe_convert_to_int)
+    df["Answer - LLM Converted"] = df["Answer - LLM"].apply(safe_convert_llm_to_int)
+    print(df["Answer - Ground Truth Converted"])
+    print(df["Answer - LLM Converted"])
 
-    correct_matches = sum(df["Answer - Ground Truth"] == df["Answer - LLM"])
+    correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
-
+    df.to_csv(
+        f"{DIR_PATH}/data/multiArith/{name}/{name}_converted_1.csv",
+        index=False
+    )
 
 
 
@@ -81,7 +84,7 @@ def calculate_accuracy(output_file, name):
 
     # Save the DataFrame to a new CSV file
     accuracy_df.to_csv(
-        f"{DIR_PATH}/data/gsm/accuracy.csv",
+        f"{DIR_PATH}/data/multiArith/accuracy.csv",
         mode="a",
         header=False,
         index=False,
