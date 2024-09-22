@@ -81,7 +81,7 @@ def calculate_accuracy(output_file, name):
 
     # Save the DataFrame to a new CSV file
     accuracy_df.to_csv(
-        f"{DIR_PATH}/data/gsm/accuracy.csv",
+        f"{DIR_PATH}/data/multiArith/accuracy.csv",
         mode="a",
         header=False,
         index=False,

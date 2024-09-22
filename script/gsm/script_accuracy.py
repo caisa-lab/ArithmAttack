@@ -30,12 +30,12 @@ prompts = [
     # Call the calculate_accuracy function for each output file
 
 
-dir_names = ['mistral_instruct','mistral_math','llama']
-#dir_names = ['mistral']
+#dir_names = ['mistral_instruct','mistral_math','llama']
+dir_names = ['llama','mistral_instruct']
 
 for dir_name in dir_names:
     for i, _ in enumerate(prompts):
-        response_file_path = f"{DIR_PATH}/data/gsm/{dir_name}/{dir_name}_gsm_json_former_prompt_{i}.csv"
+        response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_gsm_json_former_prompt_{i}.csv"
         print("response_file_path: ",response_file_path)
         print("dir_name: ",dir_name)
         calculate_accuracy(response_file_path, dir_name)
