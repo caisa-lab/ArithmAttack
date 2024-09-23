@@ -16,7 +16,7 @@ from utils import (
 
 
 access_token = access_token
-model_name = "meta-math/MetaMath-Mistral-7B"
+model_name = "mistralai/Mathstral-7b-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 bnb_config = BitsAndBytesConfig(
