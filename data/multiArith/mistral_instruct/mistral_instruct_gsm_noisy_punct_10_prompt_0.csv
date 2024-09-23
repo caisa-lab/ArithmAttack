@@ -1,0 +1,172 @@
+Question,Answer - LLM,Answer - Ground Truth
+" Paige had 11 songs on her mp3 player. If she deleted 9 old songs from it and then added 8 new songs, how many songs does she have on her mp3 player? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     Paige had 11 songs on her mp3 player. If she deleted 9 old songs from it and then added 8 new songs, how many songs does she have on her mp3 player? 
+                 [/INST] Step 1: Paige initially had 11 songs on her mp3 player.
+Step 2: She deleted 9 old songs from it. This means that the number of songs Paige had on her mp3 player decreased by 9.
+
+Step 3: Initially, Paige had 11 songs. After deleting 9 old songs, she had:
+11 songs (initial) - 9 songs (deleted) = 2 songs
+
+Step 4: Paige then added 8 new songs to her mp3 player. This indicates that the number of songs on her mp3 player increased by 8.
+
+Step 5: Starting with the 2 songs she had after deleting old songs, and adding the 8 new songs she uploaded:
+2 songs + 8 songs = 10 songs
+
+{The final answer is: Paige has 10 songs on her mp3 player}</s>",10
+" There were 39 girls and 4 boys trying out for the schools basketball team. If only 26 of them got called back, how many students didn't make the cut? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     There were 39 girls and 4 boys trying out for the schools basketball team. If only 26 of them got called back, how many students didn't make the cut? 
+                 [/INST] To find out how many students didn't make the cut, we first need to determine how many students were called back. We know that there were 39 girls and 4 boys trying out, so the total number of students is:
+
+Total students = Girls + Boys
+                        = 39 + 4
+                        = 43
+
+We know that 26 students were called back, so the number of students who didn't make the cut is:
+
+Students not making the cut = Total students - Students called back
+                                           = 43 - 26
+                                           = 17.
+
+So, the final answer is:
+{The final answer is 17 students didn't make the cut}.</s>",17
+" Faye had 34 coloring books. If she gave away 3 of them, but then bought 48 more, how many would she have total? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     Faye had 34 coloring books. If she gave away 3 of them, but then bought 48 more, how many would she have total? 
+                 [/INST] Step 1: Faye started with 34 coloring books.
+
+Step 2: She gave away 3 books, so she had 31 coloring books left (34 - 3 = 31).
+
+Step 3: Then she bought 48 more coloring books.
+
+Step 4: To find the total number of coloring books Faye has now, we add the number she had after giving some away to the number she bought later: 31 (she had after giving some away) + 48 (she bought later) = 79
+
+{The final answer is: Faye has a total of 79 coloring books.}</s>",79
+" The school cafeteria had 23 apples. If they used 20 to make lunch for the students and then bought 6 more, how many apples would they have? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     The school cafeteria had 23 apples. If they used 20 to make lunch for the students and then bought 6 more, how many apples would they have? 
+                 [/INST] Step 1: The school cafeteria had 23 apples.
+
+Step 2: They used 20 apples to make lunch for the students, so we subtract 20 from the initial number of apples: 23 - 20 = <<23-20=3>>3 apples.
+
+Step 3: Then, they went out and bought 6 more apples. So, we add the number of apples they bought to the remaining number from step 2: 3 + 6 = <<3+6=9>>9 apples.
+
+{The final answer is: They would have 9 apples.}</s>",9
+" In a video game, each enemy defeated gives you 9 points. If a level has 11 enemies total and you destroy all but 3 of them, how many points would you earn? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     In a video game, each enemy defeated gives you 9 points. If a level has 11 enemies total and you destroy all but 3 of them, how many points would you earn? 
+                 [/INST] Step 1: Determine the number of enemies you did not defeat. We know that the total number of enemies in the level is 11, and you defeated all but 3 of them. Therefore, you did not defeat 3 enemies.
+
+Step 2: Determine the number of points earned for defeating each enemy. We are given that each enemy defeated gives you 9 points.
+
+Step 3: Multiply the number of enemies defeated by the number of points earned per enemy to find the number of points earned for defeating them. Since you defeated 8 enemies (all but the 3 you left alive), you earned 8 * 9 = 72 points for defeating them.
+
+Step 4: Since you did not earn any points for the 3 enemies you did not defeat, subtract the number of enemies not defeated from the total number of enemies in the level to find the number of points earned. The total number of points earned is therefore 8 * 9 (points for defeated enemies) - 0 (points for enemies not defeated) = 72 - 0 = 72 points.
+
+{The final answer is: 72 points}</s>",72
+" Megan earned 8 points for each bag of cans she recycled. If she had 14 bags, but didn't recycle 5 of them, how many points would she have earned? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     Megan earned 8 points for each bag of cans she recycled. If she had 14 bags, but didn't recycle 5 of them, how many points would she have earned? 
+                 [/INST] Step 1: Megan earns 8 points for each bag of cans she recycles.
+
+Step 2: Megan had 14 bags of cans.
+
+Step 3: However, she didn't recycle 5 bags. So the number of bags she actually recycled is 14 - 5 = 9 bags.
+
+Step 4: Therefore, Megan earned 9 bags * 8 points/bag = 72 points for recycling.
+
+{The final answer is 72 points}</s>",72
+" April's discount flowers was having a sale where each rose was 4 dollars. If April started with 13 roses and had 4 roses left, how much money did she earn? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     April's discount flowers was having a sale where each rose was 4 dollars. If April started with 13 roses and had 4 roses left, how much money did she earn? 
+                 [/INST] To find out how much money April earned during the sale, we first need to determine how many roses she sold.
+
+1. We know that April started with 13 roses and had 4 roses left. So, the number of roses she sold is the difference between the initial number of roses and the final number of roses:
+
+number of roses sold = initial number of roses - final number of roses
+= 13 roses - 4 roses
+= 9 roses
+
+2. Each rose was sold for $4. So, to find the total amount of money April earned, we multiply the number of roses sold by the price per rose:
+
+total earnings = number of roses sold * price per rose
+= 9 roses * $4/roses
+= $36
+
+{The final answer is $36.}</s>",36
+" Ned had to wash 9 short sleeve shirts and 21 long sleeve shirts before school. If he had only washed 29 of them by the time school started, how many did he not wash? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     Ned had to wash 9 short sleeve shirts and 21 long sleeve shirts before school. If he had only washed 29 of them by the time school started, how many did he not wash? 
+                 [/INST] To find out how many shirts Ned did not wash, we first need to determine how many shirts he washed and how many he had in total.
+
+1. Ned had to wash 9 short sleeve shirts and 21 long sleeve shirts. In total, he had to wash:
+      Total shirts to wash = Short sleeve shirts + Long sleeve shirts
+       = 9 + 21 = 30 shirts
+
+2. Ned washed 29 shirts before school started. Therefore, the number of shirts Ned did not wash is:
+      Shirts not washed = Total shirts to wash - Shirts washed
+          = 30 - 29 = 1 shirt.
+
+{The final answer is: Ned did not wash 1 shirt.}</s>",1
+" A company invited 47 people to a luncheon, but 7 of them didn't show up. If the tables they had held 5 people each, how many tables do they need? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     A company invited 47 people to a luncheon, but 7 of them didn't show up. If the tables they had held 5 people each, how many tables do they need? 
+                 [/INST] Step 1: We know that 47 people were invited to the luncheon.
+
+Step 2: However, 7 of those people didn't show up. So, the actual number of people who attended was 47 - 7 = 40.
+
+Step 3: We're told that each table can hold 5 people.
+
+Step 4: To find out how many tables are needed for 40 people, we divide the total number of people by the number of people each table can hold: 40 ÷ 5 = 8.
+
+Step 5: Since a whole table can't be used if there's only one person less than a full table, they would still need to use 9 tables to accommodate all 40 guests. {The final answer is: 9 tables}</s>",8
+" Tom had 5 books. If he sold 4 of them and used the money he earned to buy 38 new books, how many books would Tom have? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     Tom had 5 books. If he sold 4 of them and used the money he earned to buy 38 new books, how many books would Tom have? 
+                 [/INST] Step 1: Tom had 5 books. After selling 4 of them, we need to find out how many books Tom has left.
+
+Step 2: Tom sold 4 books, so we subtract 4 from the initial number of 5 books Tom had.
+
+Step 3: Tom now has (5 - 4) = <math>1</math> book left.
+
+Step 4: Tom used the money he earned from selling the 4 books to buy new books. We need to find out how many new books Tom bought.
+
+Step 5: Tom used the money from selling 4 books to buy 38 new books. Let's first find out how much money Tom got from selling 4 books.
+
+Step 6: Assume the price of a single book is P. Tom sold 4 books, so Tom got 4P dollars from the sale.
+
+Step 7: Tom used this money to buy 38 new books. So, the price of a single new book is P = 4P/38. To find the number of new books Tom bought, we divide the total amount of money he spent on new books by the price of a single new book.
+
+Step 8: Tom bought (4P)/38 new books. We don't have an explicit value for P, but we know that Tom initially had 5 books, so let's assume the price of a new book is 5 dollars.
+
+Step 9: In this case, Tom spent 4 * 5 = $<<1=20.00000020>>20 on new books, and bought 4P/38 = $<<1=20.00000020>>20 / $<<1=5.00000005>>5 = <<3.92.000152.000031>>3.92 new books. Since Tom received $<<1=20.00000020>>20 from selling 4 books and spent $<<1=20.00000020>>20 on new books, Tom's total number of books is the initial number he had + the number of new books he bought = 1 + 3.92 = <<4.92.000110.000032>>4.92 books.
+
+{The final answer is 4.92 books}</s>",39
+" For a birthday party Jerry bought 41 regular sodas and 22 diet sodas. If his fridge would only hold 9 on each shelf, how many shelves would he fill up? ","<s> [INST] 
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                     For a birthday party Jerry bought 41 regular sodas and 22 diet sodas. If his fridge would only hold 9 on each shelf, how many shelves would he fill up? 
+                 [/INST] To find out how many shelves Jerry would need to fill up, we first need to determine the total number of sodas he purchased and then divide that number by the number of sodas that can fit on each shelf.
+
+Step 1: Find the total number of sodas Jerry bought.
+41 regular sodas + 22 diet sodas = 63 sodas
+
+Step 2: Determine the number of sodas that can fit on one shelf.
+9 sodas per shelf
+
+Step 3: Calculate the number of shelves needed to hold all of Jerry's sodas.
+63 sodas ÷ 9 sodas per shelf = 7.033333333333333
+Since we can't have a fraction of a shelf, we'll need to round up to the next whole number.
+
+The final answer is: Jerry would need to fill up 8 shelves to hold all of his sodas.</s>",7
