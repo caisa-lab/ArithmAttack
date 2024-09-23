@@ -17,7 +17,7 @@ from utils import (
     get_questions_and_answer_from_dataset)
 
 access_token = access_token
-model_name = "meta-llama/Meta-Llama-3-8B"
+model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
 
 bnb_config = BitsAndBytesConfig(

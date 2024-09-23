@@ -6,6 +6,7 @@ import os
 # List of scripts to run sequentially
 scripts = [
     #f"{DIR_PATH}/script/gsm/mistral_gsm.py",
+    f"{DIR_PATH}/script/gsm/llama_gsm.py",
     f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
     f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
     #f"{DIR_PATH}/script/gsm/flan_gsm.py"
@@ -31,7 +32,7 @@ def create_command(script, prompt):
     return command
 
 # Make sure this is in sync with the script order
-dir_name = ['mistral_math','mistral_instruct',]
+dir_name = ['llama','mistral_math','mistral_instruct',]
 
 # Run each script sequentially with the prompts
 for script_pointer, script in enumerate(scripts):
