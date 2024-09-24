@@ -1,0 +1,573 @@
+Question,Answer - LLM,Answer - Ground Truth
+"Janet’s ducks lay 16 eggs , per : day. She eats three for ? breakfast every morning and ; bakes muffins for her friends ; every day with four. She sells ; the remainder at the farmers' market daily for . $2 per fresh duck egg. How ? much ; in dollars does ; she make , every day ; at : the farmers' market?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Janet’s ducks lay 16 eggs, per : day. She eats three for? breakfast every morning and ; bakes muffins for her friends ; every day with four. She sells ; the remainder at the farmers' market daily for. $2 per fresh duck egg. How? much ; in dollars does ; she make, every day ; at : the farmers' market?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Janet's ducks lay 16 eggs per day. She eats 3 eggs for breakfast.
+
+* This means that 16 - 3 = 13 eggs are left over after Janet's breakfast.
+
+Step 2: Janet bakes muffins with 4 eggs every day.
+
+* This means that 4 eggs are used for baking muffins, leaving 13 - 4 = 9 eggs remaining.
+
+Step 3: Janet sells the remaining eggs at the farmers' market.
+
+* The question asks how much she makes every day at the farmers' market. Since she sells the remaining eggs, we need to calculate the revenue from selling these eggs.
+
+Step 4: Janet sells the remaining 9 eggs at $2 per egg.
+
+* To calculate the total revenue, multiply the number of eggs sold (9) by the price per egg ($2).
+
+9 eggs x $2 per egg = $18
+
+Step 5: The final answer is the total revenue Janet makes every day at the farmers' market.
+
+{The final answer is $18}<|eot_id|>","Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.
+She makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.
+#### 18"
+A robe takes 2 bolts of blue fiber ? and half that much . white fiber.  How ; many bolts in total does it take?,"<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    A robe takes 2 bolts of blue fiber? and half that much. white fiber.  How ; many bolts in total does it take?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Identify the information given in the problem.
+- A robe takes 2 bolts of blue fiber.
+- It takes half that much white fiber.
+
+Step 2: Convert the information about white fiber into a numerical value.
+- Half that much white fiber means we need to find half of 2 bolts of blue fiber.
+- Half of 2 is 1 (since 2 divided by 2 is 1).
+
+Step 3: Add the blue fiber and white fiber together to find the total number of bolts.
+- 2 bolts of blue fiber + 1 bolt of white fiber =?
+
+Step 4: Add the numbers together.
+- 2 + 1 = 3
+
+Step 5: Write the final answer.
+{The final answer is 3 bolts of fiber.}<|eot_id|>","It takes 2/2=<<2/2=1>>1 bolt of white fiber
+So the total amount of fabric is 2+1=<<2+1=3>>3 bolts of fabric
+#### 3"
+"Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value . of the house by 150%.  How much profit did he make?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value. of the house by 150%.  How much profit did he make?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Calculate the increased value of the house after the repairs.
+
+The value of the house increased by 150%, which means the new value is 150% of the original value plus the original value. Since the original value is $80,000, we can calculate the increased value as:
+
+Increased value = 150% of $80,000 + $80,000
+= 1.5 × $80,000 + $80,000
+= $120,000 + $80,000
+= $200,000
+
+Step 2: Calculate the profit made by Josh.
+
+The profit is the difference between the increased value of the house and the total cost incurred by Josh, which is the purchase price plus the repairs.
+
+Total cost = Purchase price + Repairs
+= $80,000 + $50,000
+= $130,000
+
+Profit = Increased value - Total cost
+= $200,000 - $130,000
+= $70,000
+
+Step 3: Calculate the percentage profit made by Josh.
+
+To find the percentage profit, we can divide the profit by the total cost and multiply by 100:
+
+Percentage profit = (Profit ÷ Total cost) × 100
+= ($70,000 ÷ $130,000) × 100
+= 53.85%
+
+Step 4: Check if the problem requires an answer in terms of a percentage or a dollar amount.
+
+The problem doesn't specify a particular unit for the answer, so we can provide the answer in either percentage or dollar terms. Since the problem asks for the ""profit made,"" we can provide the answer in dollar terms.
+
+{The final answer is $70,000.}<|eot_id|>","The cost of the house and repairs came out to 80,000+50,000=$<<80000+50000=130000>>130,000
+He increased the value of the house by 80,000*1.5=<<80000*1.5=120000>>120,000
+So the new value of the house is 120,000+80,000=$<<120000+80000=200000>>200,000
+So he made a profit of 200,000-130,000=$<<200000-130000=70000>>70,000
+#### 70000"
+"James ! decides to run 3 sprints 3 times a , week.  He runs 60 meters each sprint. .  How many total meters , does ! he run ; a week?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    James! decides to run 3 sprints 3 times a, week.  He runs 60 meters each sprint..  How many total meters, does! he run ; a week?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: James runs 3 sprints 3 times a week. This means he runs 3 sprints per day, and there are 3 days in a week (Monday, Tuesday, and Wednesday).
+
+Step 2: Each sprint is 60 meters. So, the total distance James runs in one sprint is 60 meters.
+
+Step 3: James runs 3 sprints per day. Therefore, the total distance he runs in one day is:
+
+3 sprints/day × 60 meters/sprint = 180 meters/day
+
+Step 4: Since James runs 3 days a week, the total distance he runs in one week is:
+
+180 meters/day × 3 days = 540 meters
+
+Step 5: Since James runs 3 sprints per day, and each sprint is 60 meters, the total distance he runs in one week is:
+
+540 meters (from Step 4) + 540 meters (from running 3 sprints on Thursday) + 540 meters (from running 3 sprints on Friday) = 1620 meters
+
+{The final answer is 1620 meters}.<|eot_id|>","He sprints 3*3=<<3*3=9>>9 times
+So he runs 9*60=<<9*60=540>>540 meters
+#### 540"
+"Every day, Wendi feeds ? each ? of her ; chickens three cups , of ! mixed ? chicken feed, containing seeds, ? mealworms , and vegetables to help keep them healthy.  She gives the ! chickens their ; feed in three separate meals. In the morning, she gives ; her . flock : of ; chickens 15 , cups of feed.  ; In the . afternoon, , she gives her chickens another . 25 cups of feed.  How ; many cups of feed , does she need ? to give her ? chickens in the final , meal of the day if : the size of ! Wendi's flock is 20 ; chickens?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Every day, Wendi feeds? each? of her ; chickens three cups, of! mixed? chicken feed, containing seeds,? mealworms, and vegetables to help keep them healthy.  She gives the! chickens their ; feed in three separate meals. In the morning, she gives ; her. flock : of ; chickens 15, cups of feed.  ; In the. afternoon,, she gives her chickens another. 25 cups of feed.  How ; many cups of feed, does she need? to give her? chickens in the final, meal of the day if : the size of! Wendi's flock is 20 ; chickens?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Identify the total amount of feed given to the chickens in the morning and afternoon.
+
+* Morning: Wendi gives her flock of 20 chickens 15 cups of feed. Since she gives them three separate meals, we need to divide the total amount of feed by 3 to find the amount given per meal. 15 cups ÷ 3 meals = 5 cups per meal.
+
+Step 2: Identify the total amount of feed given to the chickens in the morning and afternoon.
+
+* Afternoon: Wendi gives her flock of 20 chickens 25 cups of feed. Again, we need to divide the total amount of feed by 3 to find the amount given per meal. 25 cups ÷ 3 meals = 8.33 cups per meal (round to 8.33, since we can't give a fraction of a cup).
+
+Step 3: Calculate the total amount of feed given to the chickens in the morning and afternoon.
+
+* Total morning and afternoon feed: 5 cups (morning) + 8.33 cups (afternoon) = 13.33 cups
+
+Step 4: Calculate the total amount of feed needed for the final meal.
+
+* Since Wendi gives her flock of 20 chickens three meals, the total amount of feed needed for the final meal is the remaining amount needed to reach the total daily feed requirement. To find this, subtract the total morning and afternoon feed from the total daily feed requirement. Let's assume the daily feed requirement is 3 cups per chicken (since each chicken gets 3 cups of feed per day). For 20 chickens, the total daily feed requirement is: 20 chickens × 3 cups/chicken = 60 cups. Subtracting the morning and afternoon feed: 60 cups - 13.33 cups = 46.67 cups
+
+Step 5: Calculate the amount of feed needed for the final meal.
+
+* Since Wendi gives her flock of 20 chickens three meals, the amount of feed needed for the final meal is the remaining amount calculated in Step 4: 46.67 cups.
+
+{The final answer is 46.67 cups.}<|eot_id|>","If each chicken eats 3 cups of feed per day, then for 20 chickens they would need 3*20=<<3*20=60>>60 cups of feed per day.
+If she feeds the flock 15 cups of feed in the morning, and 25 cups in the afternoon, then the final meal would require 60-15-25=<<60-15-25=20>>20 cups of chicken feed.
+#### 20"
+"? Kylar , went to : the store to . buy glasses , for , his new apartment. One glass costs $5, but every second glass costs only 60% of the price. Kylar wants to buy ; 16 : glasses. How much does he . need to pay , for . them?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                   ? Kylar, went to : the store to. buy glasses, for, his new apartment. One glass costs $5, but every second glass costs only 60% of the price. Kylar wants to buy ; 16 : glasses. How much does he. need to pay, for. them?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Determine the cost of one glass
+The problem states that one glass costs $5.
+
+Step 2: Determine the cost of every second glass
+The problem states that every second glass costs only 60% of the price of one glass. To find the cost of every second glass, we can calculate 60% of $5.
+
+60% of $5 = 0.6 x $5 = $3
+
+So, every second glass costs $3.
+
+Step 3: Determine the total number of glasses Kylar needs to buy
+Kylar wants to buy 16 glasses. To find the total number of glasses, we can divide 16 by 2, since he needs to buy every second glass.
+
+16 ÷ 2 = 8
+
+So, Kylar needs to buy 8 glasses at the regular price of $5 and 8 glasses at the reduced price of $3.
+
+Step 4: Calculate the total cost of the glasses
+The cost of the 8 regular glasses is:
+8 x $5 = $40
+
+The cost of the 8 reduced-price glasses is:
+8 x $3 = $24
+
+The total cost of the 16 glasses is:
+$40 + $24 = $64
+
+{The final answer is $64.}<|eot_id|>","The discount price of one glass is 60/100 * 5 = $<<60/100*5=3>>3.
+If every second glass is cheaper, that means Kylar is going to buy 16 / 2 = <<16/2=8>>8 cheaper glasses.
+So for the cheaper glasses, Kylar is going to pay 8 * 3 = $<<8*3=24>>24.
+And for the regular-priced glasses, Kylar will pay 8 * 5 = $<<8*5=40>>40.
+So in total Kylar needs to pay 24 + 40 = $<<24+40=64>>64 for the glasses he wants to buy.
+#### 64"
+": Toulouse has twice as many sheep as Charleston. Charleston has 4 times : as many sheep as Seattle. How many sheep do Toulouse, Charleston, and Seattle : have together if Seattle has 20 sheep?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    : Toulouse has twice as many sheep as Charleston. Charleston has 4 times : as many sheep as Seattle. How many sheep do Toulouse, Charleston, and Seattle : have together if Seattle has 20 sheep?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Charleston has 4 times as many sheep as Seattle.
+
+Since Seattle has 20 sheep, we can set up an equation:
+
+Charleston's sheep = 4 x 20 = 80
+
+Step 2: Toulouse has twice as many sheep as Charleston.
+
+We can set up an equation:
+
+Toulouse's sheep = 2 x Charleston's sheep
+= 2 x 80
+= 160
+
+Step 3: Add the number of sheep from Toulouse, Charleston, and Seattle.
+
+Toulouse's sheep + Charleston's sheep + Seattle's sheep
+= 160 + 80 + 20
+= 260
+
+{The final answer is 260.}<|eot_id|>","If Seattle has 20 sheep, Charleston has 4 * 20 sheep = <<20*4=80>>80 sheep
+Toulouse has twice as many sheep as Charleston, which is 2 * 80 sheep = <<2*80=160>>160 sheep
+Together, the three has 20 sheep + 160 sheep + 80 sheep = <<20+160+80=260>>260 sheep
+#### 260"
+". Carla ! is downloading a ? 200 GB file. Normally she can download . 2 : GB/minute, but 40% of the ? way through the download, Windows forces a restart , to install updates, ? which ; takes 20 : minutes. Then ; Carla has to restart the : download ? from the beginning. How load ! does , it ? take to download the file?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                   . Carla! is downloading a? 200 GB file. Normally she can download. 2 : GB/minute, but 40% of the? way through the download, Windows forces a restart, to install updates,? which ; takes 20 : minutes. Then ; Carla has to restart the : download? from the beginning. How load! does, it? take to download the file?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Calculate the total time it would take to download the file without any interruptions.
+
+Carla can download 2 GB/minute, and the file is 200 GB. To find the total time, we can divide the file size by the download rate:
+
+200 GB ÷ 2 GB/minute = 100 minutes
+
+So, without any interruptions, it would take Carla 100 minutes to download the file.
+
+Step 2: Calculate the percentage of the way through the download that the interruption occurs.
+
+40% of the way through the download means that Carla has downloaded 40% of the file, which is:
+
+200 GB × 0.40 = 80 GB
+
+So, the interruption occurs when Carla has downloaded 80 GB of the file.
+
+Step 3: Calculate the time taken to download the first 80 GB of the file.
+
+Carla can download 2 GB/minute, and she needs to download 80 GB. To find the time taken, we can divide the amount downloaded by the download rate:
+
+80 GB ÷ 2 GB/minute = 40 minutes
+
+So, it takes Carla 40 minutes to download the first 80 GB of the file.
+
+Step 4: Calculate the time taken for the Windows update installation.
+
+The Windows update installation takes 20 minutes.
+
+Step 5: Calculate the total time taken so far.
+
+Carla has downloaded the first 80 GB in 40 minutes, and then the Windows update installation takes 20 minutes. The total time taken so far is:
+
+40 minutes + 20 minutes = 60 minutes
+
+Step 6: Calculate the remaining time needed to download the entire file.
+
+Carla still needs to download the remaining 120 GB (200 GB - 80 GB) of the file. Since she can download 2 GB/minute, we can calculate the remaining time needed:
+
+120 GB ÷ 2 GB/minute = 60 minutes
+
+Step 7: Add the remaining time to the total time taken so far.
+
+The total time taken so far is 60 minutes, and the remaining time needed is 60 minutes. The total time taken to download the entire file is:
+
+60 minutes + 60 minutes = 120 minutes
+
+{The final answer is 120 minutes}.<|eot_id|>","First find how many gigabytes are in 40% of the file: 200 GB * 40% = <<200*40*.01=80>>80 GB
+Then divide that number by the download rate to find the time until Windows restarts: 80 GB / 2 GB/minute = <<80/2=40>>40 minutes
+Then find the time to download the whole file after the restart: 200 GB / 2 GB/minute = <<200/2=100>>100 minutes
+Then add the time to download 40% of the file, to download the whole file, and to wait for Windows to update: 40 minutes + 100 minutes + 20 minutes = <<40+100+20=160>>160 minutes
+#### 160"
+"John ; drives for 3 hours at a speed of 60 mph , and then turns around . because he realizes he forgot something very important at home.  He tries to get home in 4 hours ! but spends the , first 2 hours in standstill traffic.  , He ! spends the next half-hour ! driving at a speed ? of 30mph, before ? being able to drive the ! remaining time ! of , the 4 hours . going at , 80 mph.  , How far is ; he from home at the end of those ? 4 hours?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    John ; drives for 3 hours at a speed of 60 mph, and then turns around. because he realizes he forgot something very important at home.  He tries to get home in 4 hours! but spends the, first 2 hours in standstill traffic. , He! spends the next half-hour! driving at a speed? of 30mph, before? being able to drive the! remaining time! of, the 4 hours. going at, 80 mph. , How far is ; he from home at the end of those? 4 hours?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: John drives for 3 hours at a speed of 60 mph.
+
+* Distance traveled = Speed x Time = 60 mph x 3 hours = 180 miles
+
+Step 2: John turns around and tries to get home in 4 hours.
+
+* Since John spent the first 2 hours in standstill traffic, he didn't move at all during this time.
+
+Step 3: John drives for the next half-hour (0.5 hours) at a speed of 30 mph.
+
+* Distance traveled during this time = Speed x Time = 30 mph x 0.5 hours = 15 miles
+
+Step 4: John spends the remaining time (3.5 hours) driving at a speed of 80 mph.
+
+* Distance traveled during this time = Speed x Time = 80 mph x 3.5 hours = 280 miles
+
+Step 5: John's total distance traveled = Distance traveled during the first leg + Distance traveled during the half-hour + Distance traveled during the remaining time.
+* Total distance traveled = 180 miles + 15 miles + 280 miles = 375 miles
+
+Step 6: Since John turned around, he is now 375 miles away from home.
+
+{The final answer is 375 miles}<|eot_id|>","When he turned around he was 3*60=<<3*60=180>>180 miles from home
+He was only able to drive 4-2=<<4-2=2>>2 hours in the first four hours
+In half an hour he goes 30*.5=<<30*.5=15>>15 miles
+He then drives another 2-.5=<<2-.5=1.5>>1.5 hours
+In that time he goes 80*1.5=<<80*1.5=120>>120 miles
+So he drove 120+15=<<120+15=135>>135 miles
+So he is 180-135=<<180-135=45>>45 miles away from home
+#### 45"
+"Eliza's rate per ; hour for the first 40 hours she works each week is $10. She also receives an overtime pay of 1.2 times her regular hourly rate. If Eliza worked : for 45 hours this ; week, how much are her earnings for ? this week?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Eliza's rate per ; hour for the first 40 hours she works each week is $10. She also receives an overtime pay of 1.2 times her regular hourly rate. If Eliza worked : for 45 hours this ; week, how much are her earnings for? this week?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Determine Eliza's earnings for the first 40 hours she works at her regular hourly rate.
+
+Regular hourly rate = $10 per hour
+Earnings for 40 hours = 40 hours x $10 per hour = $400
+
+Step 2: Determine Eliza's overtime pay.
+
+Eliza worked 45 hours, and the first 40 hours are at her regular rate. The overtime hours are 45 - 40 = 5 hours.
+
+Overtime rate = 1.2 x $10 per hour = $12 per hour
+Overtime earnings = 5 hours x $12 per hour = $60
+
+Step 3: Calculate Eliza's total earnings for the week.
+
+Total earnings = Earnings for regular hours + Overtime earnings
+= $400 + $60
+= $460
+
+{The final answer is $460.}<|eot_id|>","Eliza is entitled to 45 -40 = <<45-40=5>>5 hours overtime pay.
+Her hourly rate for the overtime pay is $10 x 1.2 = $<<10*1.2=12>>12.
+So, Eliza will receive $12 x 5 =$<<12*5=60>>60 for overtime pay.
+Her regular weekly earning is $10 x 40 = $<<10*40=400>>400.
+Thus, Eliza will receive a total of $400 + $60 = $<<400+60=460>>460 for this week's work.
+#### 460"
+"A : new program had 60 downloads in the first month. The number of downloads in the second month was three times as many as the downloads in the first month, but then reduced by 30% in the third month. How many downloads did the ; program have total over the three months?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    A : new program had 60 downloads in the first month. The number of downloads in the second month was three times as many as the downloads in the first month, but then reduced by 30% in the third month. How many downloads did the ; program have total over the three months?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Determine the number of downloads in the second month.
+Since the number of downloads in the second month is three times as many as the downloads in the first month, and the first month had 60 downloads, we can calculate the number of downloads in the second month as:
+
+60 x 3 = 180
+
+So, the program had 180 downloads in the second month.
+
+Step 2: Determine the number of downloads in the third month.
+The number of downloads in the third month was reduced by 30% from the number of downloads in the second month. To find the number of downloads in the third month, we can calculate 30% of the number of downloads in the second month and subtract it from the total:
+
+180 x 0.30 = 54 (30% of 180)
+
+180 - 54 = 126
+
+So, the program had 126 downloads in the third month.
+
+Step 3: Calculate the total number of downloads over the three months.
+To find the total number of downloads, we add the number of downloads in each month:
+
+First month: 60
+Second month: 180
+Third month: 126
+
+Total downloads: 60 + 180 + 126 = 366
+
+{The final answer is 366.}<|eot_id|>","The number of downloads of the program in the second month increased to 3*60 = <<3*60=180>>180
+In the first two months, the total number of downloads of the program was 180+60 = <<180+60=240>>240
+In the third month, the number of downloads of the program reduced by 30/100*180 = <<30/100*180=54>>54
+There were 180-54 = <<180-54=126>>126 downloads in the third month.
+In the three months, the total number of downloads of the program was 126+240 = <<126+240=366>>366
+#### 366"
+"Toula went to the bakery and bought various types of pastries. She bought 3 ; dozen donuts which cost $68 per dozen, 2 dozen mini cupcakes which cost $80 per dozen, and 6 dozen mini cheesecakes for $55 per dozen. How much was the . total cost?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Toula went to the bakery and bought various types of pastries. She bought 3 ; dozen donuts which cost $68 per dozen, 2 dozen mini cupcakes which cost $80 per dozen, and 6 dozen mini cheesecakes for $55 per dozen. How much was the. total cost?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Convert the number of dozen donuts to the total number of donuts.
+3 dozen donuts = 3 x 12 = 36 donuts
+
+Step 2: Calculate the cost of the donuts.
+Cost of donuts = 36 donuts x $68 per dozen = $68 x 3 = $204
+
+Step 3: Convert the number of dozen mini cupcakes to the total number of mini cupcakes.
+2 dozen mini cupcakes = 2 x 12 = 24 mini cupcakes
+
+Step 4: Calculate the cost of the mini cupcakes.
+Cost of mini cupcakes = 24 mini cupcakes x $80 per dozen = $80 x 2 = $160
+
+Step 5: Convert the number of dozen mini cheesecakes to the total number of mini cheesecakes.
+6 dozen mini cheesecakes = 6 x 12 = 72 mini cheesecakes
+
+Step 6: Calculate the cost of the mini cheesecakes.
+Cost of mini cheesecakes = 72 mini cheesecakes x $55 per dozen = $55 x 6 = $330
+
+Step 7: Calculate the total cost by adding the costs of the donuts, mini cupcakes, and mini cheesecakes.
+Total cost = $204 + $160 + $330 = $694
+
+{The final answer is $694}<|eot_id|>","The total charge for the doughnuts was 3 x $68 = $<<3*68=204>>204.
+The total charge for the mini cupcakes was 2 x $80 = $<<2*80=160>>160.
+The total charge for the mini cheesecakes was 6 x $55 = $<<6*55=330>>330.
+Therefore the total amount Toula paid for the pastries was $204 + $160 + $330 = $<<204+160+330=694>>694.
+#### 694"
+"Carlos is planting a lemon tree. The tree will : cost $90 to plant. Each year it will grow 7 : lemons, which he can sell for $1.5 each. , It costs $3 a year to water and feed ! the tree. How many years ; will ; it take before he ? starts earning money on the lemon ! tree?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Carlos is planting a lemon tree. The tree will : cost $90 to plant. Each year it will grow 7 : lemons, which he can sell for $1.5 each., It costs $3 a year to water and feed! the tree. How many years ; will ; it take before he? starts earning money on the lemon! tree?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Calculate the total cost of planting the tree:
+The tree will cost $90 to plant.
+
+Step 2: Calculate the annual profit from selling lemons:
+Each year, the tree will grow 7 lemons, which can be sold for $1.5 each. The total revenue from selling lemons is:
+7 lemons/year × $1.5/lemon = $10.50/year
+
+Step 3: Calculate the annual expenses for watering and feeding the tree:
+It costs $3 a year to water and feed the tree.
+
+Step 4: Calculate the annual profit after subtracting expenses:
+Annual profit = Total revenue - Annual expenses
+= $10.50/year - $3/year
+= $7.50/year
+
+Step 5: Determine how many years it will take to break even:
+The tree costs $90 to plant, and the annual profit is $7.50. To find out how many years it will take to break even, we can divide the initial cost by the annual profit:
+$90 ÷ $7.50/year = 12 years
+
+Step 6: Check if the tree will start earning money after 12 years:
+After 12 years, the tree will have earned a total of:
+$7.50/year × 12 years = $90
+
+The tree will have earned a total of $90, which is equal to the initial cost of planting. This means that the tree will break even after 12 years.
+
+Step 7: Determine how many years it will take to start earning money:
+Since the tree will break even after 12 years, it will start earning money after 12 years.
+
+{The final answer is 12 years.}<|eot_id|>","He makes $10.5 selling lemons each year because 7 x 1.5 = <<7*1.5=10.5>>10.5
+He earns $7.5 each year from the lemon tree because 10.5 - 3 = <<10.5-3=7.5>>7.5
+It will take 12 years to earn enough to pay off the tree because 90 / 7.5 = <<90/7.5=12>>12
+He will make money in year 13 because 12 + 1 = <<12+1=13>>13
+#### 13"
+"Melanie is a door-to-door saleswoman. She sold a third : of her vacuum cleaners at ? the green , house, 2 more to the red house, and half of what was left at the orange house. If Melanie , has 5 vacuum cleaners left, how many did : she start with?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Melanie is a door-to-door saleswoman. She sold a third : of her vacuum cleaners at? the green, house, 2 more to the red house, and half of what was left at the orange house. If Melanie, has 5 vacuum cleaners left, how many did : she start with?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Let's identify the information we're given:
+
+* Melanie sold a third of her vacuum cleaners at the green house.
+* She sold 2 more at the red house.
+* She sold half of what was left at the orange house.
+* She has 5 vacuum cleaners left.
+
+Step 2: Let's calculate the number of vacuum cleaners sold at the green house.
+
+* Since Melanie sold a third of her vacuum cleaners at the green house, she must have started with a multiple of 3 (since a third of a number is the same as multiplying it by 1/3, which is the same as dividing by 3).
+
+Step 3: Let's calculate the number of vacuum cleaners sold at the red house.
+
+* Melanie sold 2 more vacuum cleaners at the red house, which means she must have sold a total of 2 + the number of vacuum cleaners sold at the green house.
+
+Step 4: Let's calculate the number of vacuum cleaners left after the red house.
+
+* Since Melanie has 5 vacuum cleaners left, and she sold 2 at the red house, she must have had 7 vacuum cleaners left after the red house (5 + 2).
+
+Step 5: Let's calculate the number of vacuum cleaners sold at the orange house.
+
+* Since Melanie sold half of what was left at the orange house, and she had 7 vacuum cleaners left after the red house, she must have sold 3.5 vacuum cleaners at the orange house (7/2 = 3.5).
+
+Step 6: Let's calculate the total number of vacuum cleaners sold.
+
+* The number of vacuum cleaners sold at the green house is unknown, but we know it's a third of Melanie's initial number of vacuum cleaners. Let's call this number x. Then, the number of vacuum cleaners sold at the green house is x/3.
+* The number of vacuum cleaners sold at the red house is 2 + x/3.
+* The number of vacuum cleaners sold at the orange house is 3.5.
+
+Step 7: Let's calculate the total number of vacuum cleaners sold and subtract it from Melanie's initial number of vacuum cleaners.
+
+* Total number of vacuum cleaners sold = x/3 + 2 + 3.5
+* Melanie's initial number of vacuum cleaners - total number of vacuum cleaners sold = x - (x/3 + 2 + 3.5)
+
+Step 8: Let's equate this expression to 5, which is the number of vacuum cleaners Melanie has left.
+
+* x - (x/3 + 2 + 3.5) = 5
+
+Step 9: Let's solve for x.
+
+* Simplify the equation: x - x/3 - 5.5 = 0
+* Multiply both sides by 3: 3x - x - 16.5 = 0
+* Combine like terms: 2x - 16.5 = 0
+* Add 16.5 to both sides: 2x = 16.5
+* Divide both sides by 2: x = 8.25
+
+Step 10: Let's conclude that Melanie started with 27 vacuum cleaners (since x is a third of Melanie's initial number of vacuum cleaners).
+
+{The final answer is 27.}<|eot_id|>","First multiply the five remaining vacuum cleaners by two to find out how many Melanie had before she visited the orange house: 5 * 2 = <<5*2=10>>10
+Then add two to figure out how many vacuum cleaners she had before visiting the red house: 10 + 2 = <<10+2=12>>12
+Now we know that 2/3 * x = 12, where x is the number of vacuum cleaners Melanie started with. We can find x by dividing each side of the equation by 2/3, which produces x = 18
+#### 18"
+"In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire , students enrolled in hip-hop dance?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire, students enrolled in hip-hop dance?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Identify the number of students who enrolled in contemporary dance.
+20% of 20 students = 20% × 20 = 0.20 × 20 = 4 students
+
+So, 4 students enrolled in contemporary dance.
+
+Step 2: Identify the number of remaining students after those who enrolled in contemporary dance.
+20 students - 4 students = 16 students
+
+Step 3: Identify the number of students who enrolled in jazz dance.
+25% of the remaining students = 25% × 16 = 0.25 × 16 = 4 students
+
+So, 4 students enrolled in jazz dance.
+
+Step 4: Identify the number of students who enrolled in hip-hop dance.
+The remaining students after those who enrolled in contemporary and jazz dance are:
+16 students - 4 students (who enrolled in jazz dance) = 12 students
+
+Step 5: Calculate the percentage of students who enrolled in hip-hop dance.
+The number of students who enrolled in hip-hop dance is 12, out of the original 20 students.
+To find the percentage, divide the number of students who enrolled in hip-hop dance by the total number of students and multiply by 100:
+(12 ÷ 20) × 100 = 60%
+
+{The final answer is 60%.}<|eot_id|>","There are 20 x 20/100 = <<20*20/100=4>>4 students who enrolled in contemporary dance.
+So, 20 - 4 = <<20-4=16>>16 students are enrolled in either jazz or hip-hop dance.
+There are 16 x 25/100 = <<16*25/100=4>>4 students who enrolled in jazz dance.
+Hence, 16 - 4 = <<16-4=12>>12 students enrolled in hip-hop dance.
+This is 12/20 x 100% = 60% of the entire students.
+#### 60"

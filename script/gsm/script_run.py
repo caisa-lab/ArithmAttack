@@ -43,7 +43,7 @@ for script_pointer, script in enumerate(scripts):
         print("$$")
         print("Running:", script)
         # Create the command with the current script and all prompts
-        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/multiArith_noisy_punct_50.csv {DIR_PATH}/data/multiArith/{dir_name[script_pointer]}/{sc_name}_noisy_punct_50_prompt_{i}.csv {prompt}"
+        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/gsm8k_noisy_punct_50.csv {DIR_PATH}/data/gsm/{dir_name[script_pointer]}/{sc_name}_noisy_punct_50_prompt_{i}.csv {prompt}"
         command = create_command(script,cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)

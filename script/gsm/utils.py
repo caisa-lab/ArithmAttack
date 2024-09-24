@@ -80,7 +80,7 @@ def calculate_accuracy(output_file, name):
     correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
     df.to_csv(
-        f"{DIR_PATH}/data/multiArith/{name}/{name}_noisy_50_converted.csv",
+        f"{DIR_PATH}/data/gsm/{name}/{name}_noisy_50_converted.csv",
         index=False
     )
 
@@ -94,7 +94,7 @@ def calculate_accuracy(output_file, name):
 
     # Save the DataFrame to a new CSV file
     accuracy_df.to_csv(
-        f"{DIR_PATH}/data/multiArith/accuracy.csv",
+        f"{DIR_PATH}/data/gsm/accuracy.csv",
         mode="a",
         header=False,
         index=False,
