@@ -53,8 +53,8 @@ print('Prompt ',prompt)
 #csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
 # csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
-questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
-#questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
+#questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
+questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
 
 
 #output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_multiArith_response.csv"
