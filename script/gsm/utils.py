@@ -80,7 +80,7 @@ def calculate_accuracy(output_file, name):
     correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
     df.to_csv(
-        f"{DIR_PATH}/data/gsm/{name}/{name}_noisy_50_converted.csv",
+        f"{DIR_PATH}/data/gsm/{name}/{name}_noisy_10_converted.csv",
         index=False
     )
 
@@ -89,7 +89,7 @@ def calculate_accuracy(output_file, name):
     print("correct_matches: ", correct_matches)
     print("accuracy: ", accuracy)
     # Create a DataFrame for script name and accuracy
-    data = {"Script Name": [f"{name}.py noisy 50"], "Accuracy": [accuracy]}
+    data = {"Script Name": [f"{name}.py noisy 10"], "Accuracy": [accuracy]}
     accuracy_df = pd.DataFrame(data)
 
     # Save the DataFrame to a new CSV file

@@ -33,7 +33,7 @@ def create_command(script, prompt):
 
 # Make sure this is in sync with the script order
 dir_name = ['llama','mistral_math','mistral_instruct']
-# dir_name = ['mistral_math']
+# dir_name = ['mistral_math','mistral_instruct']
 
 # Run each script sequentially with the prompts
 for script_pointer, script in enumerate(scripts):
@@ -43,7 +43,7 @@ for script_pointer, script in enumerate(scripts):
         print("$$")
         print("Running:", script)
         # Create the command with the current script and all prompts
-        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/gsm8k_noisy_punct_50.csv {DIR_PATH}/data/gsm/{dir_name[script_pointer]}/{sc_name}_noisy_punct_50_prompt_{i}.csv {prompt}"
+        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/gsm8k_noisy_punct_10.csv {DIR_PATH}/data/gsm/{dir_name[script_pointer]}/{sc_name}_noisy_punct_10_prompt_{i}.csv {prompt}"
         command = create_command(script,cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)

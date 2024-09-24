@@ -1,0 +1,27 @@
+Question,Answer - LLM,Answer - Ground Truth
+"Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning ; and bakes muffins for her friends every ? day with four. She sells the remainder at the farmers' market , daily for $2 per ? fresh duck egg. How much in dollars does she make every day at the : farmers' market?","<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning ; and bakes muffins for her friends every? day with four. She sells the remainder at the farmers' market, daily for $2 per? fresh duck egg. How much in dollars does she make every day at the : farmers' market?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Let's break down the problem step by step:
+
+Step 1: Determine the total number of eggs laid by Janet's ducks per day.
+Janet's ducks lay 16 eggs per day.
+
+Step 2: Janet eats 3 eggs for breakfast every morning. This means she consumes 3 eggs per day.
+
+Step 3: Janet bakes muffins for her friends every day with 4 eggs. This means she uses 4 eggs per day for baking.
+
+Step 4: To find the total number of eggs laid by Janet's ducks, subtract the number of eggs eaten for breakfast and used for baking from the total number of eggs laid:
+16 eggs/day (laid) - 3 eggs/day (eaten) - 4 eggs/day (used for baking) = 9 eggs/day
+
+Step 5: Janet sells the remaining eggs at the farmers' market. Since she sells the eggs fresh, she sells them by the egg, not in batches.
+
+Step 6: The problem asks how much Janet makes every day at the farmers' market. To find the answer, multiply the number of eggs sold by the price per egg:
+9 eggs/day (sold) × $2/egg = $18/day
+
+{The final answer is $18.}<|eot_id|>","Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.
+She makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.
+#### 18"
