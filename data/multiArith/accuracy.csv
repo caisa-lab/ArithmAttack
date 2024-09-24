@@ -1,0 +1,9 @@
+mistral_instruct.py noisy 10,70.55555555555556
+mistral_math.py noisy 10,92.22222222222223
+llama.py noisy 10,93.88888888888889
+mistral_instruct.py noisy 30,62.22222222222222
+mistral_math.py noisy 30,92.77777777777779
+llama.py noisy 30,92.77777777777779
+mistral_instruct.py noisy 50,69.10569105691057
+mistral_math.py noisy 50,87.77777777777777
+llama.py noisy 50,89.44444444444444

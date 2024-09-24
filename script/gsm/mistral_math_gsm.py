@@ -12,12 +12,13 @@ from tqdm import tqdm
 
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
-    get_questions_and_answer_from_dataset)
+    get_questions_and_answer_from_dataset,
+    get_questions_and_answer_from_noisy_dataset)
 
 
 access_token = access_token
 model_name = "mistralai/Mathstral-7b-v0.1"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -50,9 +51,9 @@ print('Prompt ',prompt)
 #csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
 # csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
-questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
-#uestions, ground_truths = get_questions_and_answer_from_dataset(input_file)
-
+# questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
+# questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
+questions, ground_truths = get_questions_and_answer_from_noisy_dataset(input_file)
 
 #output_file = f"{DIR_PATH}/data/multiArith/mistral_math/mistral_math_multiArith_response.csv"
 #output_file = f"{DIR_PATH}/data/gsm/mistral_math/mistral_math_gsm_response.csv"

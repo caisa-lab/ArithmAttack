@@ -1,3 +1,4 @@
+#from script.gsm.script_run import dir_name
 from utils import calculate_accuracy
 
 from config import access_token, DIR_PATH
@@ -31,11 +32,11 @@ prompts = [
 
 
 dir_names = ['mistral_instruct', 'mistral_math', 'llama']
-
+# dir_names = ['llama']
 
 for dir_name in dir_names:
     for i, _ in enumerate(prompts):
-        response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_gsm_prompt_{i}.csv"
+        response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_gsm_noisy_punct_50_prompt_{i}.csv"
         print("response_file_path: ",response_file_path)
         print("dir_name: ",dir_name)
         calculate_accuracy(response_file_path, dir_name)

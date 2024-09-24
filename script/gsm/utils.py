@@ -25,6 +25,16 @@ def get_questions_and_answer_from_multiArith_dataset(csv_file_path):
 
     return questions, groundTruths
 
+def get_questions_and_answer_from_noisy_dataset(csv_file_path):
+    # Load the specific CSV file
+    data = pd.read_csv(csv_file_path)
+
+    # Extract the question column
+    questions = data["noisy_questions"].tolist()
+    groundTruths = data["answer"].tolist()
+
+    return questions, groundTruths
+
 def calculate_accuracy(output_file, name):
 
     print("Calculating accuracy")
@@ -70,7 +80,7 @@ def calculate_accuracy(output_file, name):
     correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
     df.to_csv(
-        f"{DIR_PATH}/data/multiArith/{name}/{name}_converted_1.csv",
+        f"{DIR_PATH}/data/multiArith/{name}/{name}_noisy_50_converted.csv",
         index=False
     )
 
@@ -79,7 +89,7 @@ def calculate_accuracy(output_file, name):
     print("correct_matches: ", correct_matches)
     print("accuracy: ", accuracy)
     # Create a DataFrame for script name and accuracy
-    data = {"Script Name": [f"{name}.py"], "Accuracy": [accuracy]}
+    data = {"Script Name": [f"{name}.py noisy 50"], "Accuracy": [accuracy]}
     accuracy_df = pd.DataFrame(data)
 
     # Save the DataFrame to a new CSV file
