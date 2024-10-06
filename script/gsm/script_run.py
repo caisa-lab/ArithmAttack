@@ -24,13 +24,13 @@ prompts = [
 
 prompt = "Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}."
 
+
 model_names = [
-    "meta-llama/Meta-Llama-3-8B-Instruct",
-    "microsoft/phi-2",
-    "google/gemma-7b",
-    #"openai-community/gpt2",  out of mem
-    #"bigscience/bloom",        out of mem
-    #"mistralai/Mixtral-8x7B-Instruct-v0.1 "  out of mem
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "google/gemma-2-2b-it",
+    "google/gemma-2-2b-jpn-it",
+    "HuggingFaceH4/zephyr-7b-beta",
+    "Qwen/Qwen2.5-1.5B-Instruct"
 ]
 
 
@@ -65,7 +65,7 @@ def create_command(script, prompt):
 
 for model in model_names:
     model_name = model.split("/")[1]
-    cmd_line_args = f"{DIR_PATH}/data/gsm/test_preprocessed.csv {DIR_PATH}/data/gsm/{model_name}/{model_name}.csv {model} {prompt}"
+    cmd_line_args = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv {DIR_PATH}/data/multiArith/{model_name}/{model_name}.csv {model} {prompt}"
     script = "generic_model_script.py"
     command = create_command(script, cmd_line_args)
     # Execute the command

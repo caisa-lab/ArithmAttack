@@ -1,6 +1,7 @@
 import torch
 import sys
 
+
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
@@ -14,8 +15,8 @@ from tqdm import tqdm
 
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
-    get_questions_and_answer_from_dataset)
-
+    get_questions_and_answer_from_dataset,
+)
 
 
 args = sys.argv[1].split()
@@ -23,15 +24,19 @@ args = sys.argv[1].split()
 input_file = args[0]
 output_file = args[1]
 model_name = args[2]
-prompt = ' '.join(args[3:])
+prompt = " ".join(args[3:])
 
 print("Model Name: ", model_name)
-print('Input file ', input_file)
-print('Output file ', output_file)
-print('Prompt ', prompt)
+print("Input file ", input_file)
+print("Output file ", output_file)
+print("Prompt ", prompt)
+
 
 access_token = access_token
-tokenizer = AutoTokenizer.from_pretrained(model_name, token=access_token)
+tokenizer = AutoTokenizer.from_pretrained(
+    model_name, token=access_token, trust_remote_code=True
+)
+
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -45,6 +50,8 @@ model = AutoModelForCausalLM.from_pretrained(
     token=access_token,
     device_map={"": 0},
     quantization_config=bnb_config,
+    torch_dtype="auto",
+    trust_remote_code=True,
 )
 
 model.config.use_cache = False
@@ -53,8 +60,8 @@ model.config.pretraining_tp = 1
 # csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
 # csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
-#questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
-questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
+questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
+#questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
 
 
 # output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_multiArith_response.csv"
@@ -77,7 +84,9 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     writer.writeheader()
     counter = 0
 
-    for question, ground_truth in tqdm(zip(questions, ground_truths), total=len(questions)):
+    for question, ground_truth in tqdm(
+        zip(questions, ground_truths), total=len(questions)
+    ):
         messages = [
             {
                 "role": "user",
@@ -85,12 +94,15 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
                     {prompt}
                     question:
                     {question}
-                """
+                """,
             }
         ]
-
-        model_inputs = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True,return_tensors="pt").to("cuda")
-        generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
+        model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to(
+            "cuda"
+        )
+        generated_ids = model.generate(
+            model_inputs, max_new_tokens=1000, do_sample=True
+        )
         generated_data = tokenizer.batch_decode(generated_ids)[0]
 
         # import pprint
@@ -107,8 +119,8 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             }
         )
 
-        counter += 1
-        if counter >= 3:
-            break
+        # counter += 1
+        # if counter >= 1:
+        #     break
 
 print(f"Questions and answers saved to {output_file}")

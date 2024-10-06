@@ -6,3 +6,5 @@ transformers
 pandas
 bitsandbytes
 jsonformer
+tiktoken
+jinja2
