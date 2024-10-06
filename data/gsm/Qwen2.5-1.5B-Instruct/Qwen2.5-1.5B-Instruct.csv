@@ -1,0 +1,36 @@
+Question,Answer - LLM,Answer - Ground Truth
+Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?,"<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+                <|im_end|>
+<|im_start|>system
+To determine how much money Janet makes from selling her eggs at the farmers' market, we need to follow these steps:
+
+### Step 1: Calculate the total number of eggs laid per day.
+Janet's ducks lay 16 eggs per day.
+
+### Step 2: Determine how many eggs are eaten for breakfast.
+Janet eats 3 eggs for breakfast every morning. Since there are 7 days in a week (assuming a standard workweek), we can calculate the total number of eggs eaten for breakfast over a week as follows:
+\[ \text{Total eggs eaten for breakfast} = 3 \times 7 = 21 \]
+
+### Step 3: Subtract the eggs eaten for breakfast from the total number of eggs laid per day.
+\[ \text{Remaining eggs after breakfast} = 16 - 21 = -5 \]
+Since it's not possible to have negative eggs, this indicates that all the eggs laid are used up before the end of the day, so no eggs remain after breakfast.
+
+### Step 4: Calculate the number of eggs used for baking muffins.
+Janet uses 4 eggs to bake muffins every day.
+
+### Step 5: Subtract the eggs used for baking muffins from the remaining eggs.
+\[ \text{Remaining eggs after baking muffins} = 0 \]
+
+### Step 6: Calculate the total revenue from selling the remaining eggs.
+Since there are no eggs left after both breakfast and muffin baking, there is no revenue generated from selling any eggs. Therefore, Janet makes $0 from the farmers' market on any given day.
+
+### Final Answer:
+\[
+\boxed{0}
+\]<|im_end|>",18

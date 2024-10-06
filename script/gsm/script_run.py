@@ -22,6 +22,16 @@ prompts = [
     #"As a math tutor, explain your reasoning step by step for the following problem. Let's think step by step and end the answer with {The final answer is}."
 ]
 
+prompt = "Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}."
+
+
+model_names = [
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "google/gemma-2-2b-it",
+    "google/gemma-2-2b-jpn-it",
+    "HuggingFaceH4/zephyr-7b-beta",
+    "Qwen/Qwen2.5-1.5B-Instruct"
+]
 
 # Function to create a command with prompts
 def create_command(script, prompt):
@@ -31,21 +41,32 @@ def create_command(script, prompt):
     print(command)
     return command
 
-# Make sure this is in sync with the script order
-dir_name = ['llama','mistral_math','mistral_instruct']
-# dir_name = ['mistral_math','mistral_instruct']
+# # Make sure this is in sync with the script order
+# dir_name = ['llama','mistral_math','mistral_instruct']
+# # dir_name = ['mistral_math','mistral_instruct']
 
-# Run each script sequentially with the prompts
-for script_pointer, script in enumerate(scripts):
-    for i, prompt in enumerate(prompts):
-        sc_name = os.path.splitext(os.path.basename(script))[0]
-        print(sc_name)
-        print("$$")
-        print("Running:", script)
-        # Create the command with the current script and all prompts
-        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/gsm8k_noisy_punct_10.csv {DIR_PATH}/data/gsm/{dir_name[script_pointer]}/{sc_name}_noisy_punct_10_prompt_{i}.csv {prompt}"
-        command = create_command(script,cmd_line_args)
+# # Run each script sequentially with the prompts
+# for script_pointer, script in enumerate(scripts):
+#     for i, prompt in enumerate(prompts):
+#         sc_name = os.path.splitext(os.path.basename(script))[0]
+#         print(sc_name)
+#         print("$$")
+#         print("Running:", script)
+#         # Create the command with the current script and all prompts
+#         cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/gsm8k_noisy_punct_10.csv {DIR_PATH}/data/gsm/{dir_name[script_pointer]}/{sc_name}_noisy_punct_10_prompt_{i}.csv {prompt}"
+#         command = create_command(script,cmd_line_args)
+#         # Execute the command
+#         subprocess.run(command, shell=False)
+
+# print("All scripts have been executed.")
+
+PUNC_PERCENT = [10,30,50]
+
+for model in model_names:
+    model_name = model.split("/")[1]
+    for percent in PUNC_PERCENT:
+        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/multiArith_noisy_punct_{percent}.csv {DIR_PATH}/data/multiArith/{model_name}/{model_name}_noisy_punct_{percent}.csv {model} {prompt}"
+        script = f"{DIR_PATH}script/gsm/generic_model_script.py"
+        command = create_command(script, cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)
-
-print("All scripts have been executed.")

@@ -1,0 +1,63 @@
+Question,Answer - LLM,Answer - Ground Truth
+Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?,"<|user|>
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+                </s> 
+<|assistant|>
+To determine how much Janet makes per day at the farmers' market, we need to find the number of eggs she sells each day and then multiply that by the price per egg. Here's how we can break this problem down:
+
+1. Calculate the total number of eggs Janet's ducks produce in a day:
+
+   - Janet's ducks lay 16 eggs per day (provided).
+
+   - Therefore, the total number of eggs produced in a day is: 16 eggs per duck x Number of ducks Janet has
+
+2. Find out how many eggs Janet uses for breakfast and muffins:
+
+   - Janet eats three eggs for breakfast every morning. Let's assume she does this every day (we can check this assumption later).
+
+   - This means Janet uses 21 eggs (3 per breakfast x 7 days) for breakfast each week.
+
+   - Janet's friends come over for muffins every day. Let's assume they consume 4 eggs each day for the muffins: 4 eggs per friend x Number of friends Janet has
+
+   - Therefore, the number of eggs Janet uses for making muffins each week is: 4 eggs per muffin x Number of muffins she makes each week
+
+3. Subtract the number of eggs used for breakfast and muffins from the total number of eggs produced:
+
+   - Total number of eggs produced by duck per day = 16
+
+   - Number of eggs used for breakfast per day = 3
+
+   - Number of eggs used for muffins per day = Assume it's 8 (we can confirm this later)
+
+   - Hence, the number of excess eggs sold per day is: Total number of eggs produced - (Number of eggs used for breakfast + Number of eggs used for muffins) = 16 - (3 + 8) = 5
+
+4. Convert excess eggs sold per day to the number of dollars generated daily from the farmers' market:
+
+   - Number of dollars generated per egg = $2
+
+   - Number of excess eggs sold per day = 5
+
+   - Dollars generated per day from farmers' market = Excess eggs sold per day x $2 per egg
+
+5. Summarize the total daily earnings of Janet:
+
+   - Dollar earnings from farmers' market = Dollars generated per day from farmers' market
+
+   - Dollar earnings from breakfast = Number of breakfasts per week x Number of eggs used per breakfast x $2 per egg (we can assume that Janet always pays the same price for her breakfast eggs)
+
+   - Dollar earnings from muffins = Number of friends x Number of muffins per friend x $2 per egg.
+
+Putting it all together:
+
+   - Janet's daily earnings = Dollar earnings from farmers' market + Dollar earnings from breakfast + Dollar earnings from muffins
+
+That's it! We have now followed the problem-solving approach step by step. Let's put all our calculations together to find out how much Janet earns daily from the farmers' market.
+
+The final answer is: {Dollar earnings from farmers' market plus dollar earnings from breakfast plus dollar earnings from muffins}
+
+Some assumptions made in this problem: The number of ducks, eggs produced by each duck, and number of friends might change in reality. As long as the changes don't significantly affect the calculations, the results will still remain valid.
+
+It would be wise to check these assumptions when solving real-life problems.</s>",18

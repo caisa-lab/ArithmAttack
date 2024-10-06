@@ -1,0 +1,23 @@
+Question,Answer - LLM,Answer - Ground Truth
+Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?,"<bos><start_of_turn>user
+Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?<end_of_turn>
+
+
+Here's how we can solve this problem step by step:
+
+**1. Find the number of eggs left after Janet eats breakfast.**
+
+* Start with the total eggs: 16 eggs/day
+* Subtract the eggs she eats: 16 - 3 = 13 eggs
+
+**2. Calculate how much she makes at the farmers' market.** 
+
+* She sells the remaining eggs: 13 eggs 
+* Price per egg: $2/egg
+* Total earnings: 13 * $2  = $26
+
+
+**The final answer is:** $26. 
+<end_of_turn><eos>",18
