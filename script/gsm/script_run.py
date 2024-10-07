@@ -65,8 +65,8 @@ def create_command(script, prompt):
 
 for model in model_names:
     model_name = model.split("/")[1]
-    cmd_line_args = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv {DIR_PATH}/data/multiArith/{model_name}/{model_name}.csv {model} {prompt}"
-    script = "generic_model_script.py"
+    cmd_line_args = f"{DIR_PATH}/data/gsm/test_preprocessed.csv {DIR_PATH}/data/gsm/{model_name}/{model_name}.csv {model} {prompt}"
+    script = f"{DIR_PATH}script/gsm/generic_model_script.py"
     command = create_command(script, cmd_line_args)
     # Execute the command
     subprocess.run(command, shell=False)

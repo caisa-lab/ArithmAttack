@@ -1,0 +1,150 @@
+Question,Answer - LLM,Answer - Ground Truth
+Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?,"<|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?
+                <|im_end|>
+                
+                
+                The final answer is
+
+                    Answer
+                
+                <|endoftext|>",18
+A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?,"<|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                    question:
+                    A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?
+                <|im_end|>
+                """"""
+                self.assertEqual(
+                    self.get_answer(),
+                    ""(4/2)*x is equal to (x/2)*3.""
+                )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_simple_addition(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = 10
+        self.assertEqual(
+            self.get_answer(),
+            x + x + x
+        )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_multi_simple_addition(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = 10
+        self.assertEqual(
+            self.get_answer(),
+            x + x + x + x + x + x
+        )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_multi_add_simple_floats(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = 0.0
+        y = 3.0
+        self.assertEqual(
+            self.get_answer(),
+            x + y + y + y
+        )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_multi_floats(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = 1.0  # Any positive float will work.
+        x_half = 0.5
+        x_one_half = x_half
+        x_third = x_half / 3
+        x_quarter = x_half / 4
+        self.assertEqual(
+            self.get_answer(),
+            x + x_half + x_third + x_quarter
+        )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_multi_floats_negated(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = 1.0
+        x_half = 0.5  # Any negative float will work.
+        x_one_half = x_half
+        x_third = x_half / 3
+        x_quarter = x_half / 4
+
+        self.assertEqual(
+            self.get_answer(),
+            x + - x_half + x_third + x_quarter
+        )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_multi_ints(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = 10
+        x_half = 5
+        x_one_half = x_half
+        x_third = x_half / 3
+        x_quarter = x_half / 4
+
+        self.assertEqual(
+            self.get_answer(),
+            x + x_half + x_third + x_quarter
+        )
+
+    # ----------------------------------------------------------------------------------------------------------------------
+
+    def test_multiple_adds_with_strings(self):
+        """"""
+                <|im_start|>user
+
+                    Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.
+                <|im_end|>
+                """"""
+
+        x = ""A string""
+        x_full_str = ""The full string""
+        x",3
