@@ -62,6 +62,7 @@ def calculate_accuracy(output_file, name):
         return numeric_value
 
     # Type cast both columns to float
+    print(f'###{name}##')
     df["Answer - Ground Truth Converted"] = df["Answer - Ground Truth"].apply(safe_convert_to_int)
     df["Answer - LLM Converted"] = df["Answer - LLM"].apply(safe_convert_llm_to_int)
     print(df["Answer - Ground Truth Converted"])
