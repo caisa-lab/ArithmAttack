@@ -32,3 +32,8 @@ llama.py,95.0
 mistral_instruct.py,71.66666666666667
 mistral_math.py,96.11111111111111
 llama.py,95.0
+Llama-3.1-8B-Instruct.py,82.2592873388931
+gemma-2-2b-it.py,49.65883244882487
+gemma-2-2b-jpn-it.py,49.50720242608037
+zephyr-7b-beta.py,23.275208491281273
+Qwen2.5-1.5B-Instruct.py,61.10689916603488

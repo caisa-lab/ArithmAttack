@@ -2,3 +2,11 @@ llama.py,26.111111111111114
 mistral_instruct.py,0.5555555555555556
 llama.py,26.111111111111114
 mistral_instruct.py,0.5555555555555556
+Llama-3.1-8B-Instruct.py,99.44444444444444
+gemma-2-2b-it.py,89.44444444444444
+gemma-2-2b-jpn-it.py,88.33333333333333
+zephyr-7b-beta.py,37.22222222222222
+Qwen2.5-1.5B-Instruct.py,97.22222222222221
+mistral_instruct.py,71.66666666666667
+mistral_math.py,96.11111111111111
+llama.py,95.0
