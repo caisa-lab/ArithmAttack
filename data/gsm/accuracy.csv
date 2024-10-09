@@ -99,3 +99,18 @@ flan.py,4.0
 flan.py,4.0
 flan.py,4.0
 llama.py noisy 10,74.60197119029569
+Llama-3.1-8B-Instruct.py noisy 10,81.04624715693708
+Llama-3.1-8B-Instruct.py noisy 30,80.51554207733132
+Llama-3.1-8B-Instruct.py noisy 50,79.7573919636088
+gemma-2-2b-it.py noisy 10,44.73085670962851
+gemma-2-2b-it.py noisy 30,42.380591357088704
+gemma-2-2b-it.py noisy 50,40.33358605003791
+gemma-2-2b-jpn-it.py noisy 10,49.05231235784686
+gemma-2-2b-jpn-it.py noisy 30,47.23275208491281
+gemma-2-2b-jpn-it.py noisy 50,45.640636846095525
+zephyr-7b-beta.py noisy 10,20.621683093252464
+zephyr-7b-beta.py noisy 30,16.603487490523122
+zephyr-7b-beta.py noisy 50,13.949962092494314
+Qwen2.5-1.5B-Instruct.py noisy 10,60.19711902956786
+Qwen2.5-1.5B-Instruct.py noisy 30,55.875663381349504
+Qwen2.5-1.5B-Instruct.py noisy 50,51.70583775587566
