@@ -34,9 +34,18 @@ prompts = [
 #dir_names = ['mistral_instruct', 'mistral_math', 'llama']
 dir_names = ['Mistral-7B-Instruct-v0.2']
 
+# for dir_name in dir_names:
+#     for i, _ in enumerate(prompts):
+#         response_file_path = f"{DIR_PATH}/data/gsm/{dir_name}/{dir_name}_gsm_noisy_punct_10_prompt_{i}.csv"
+#         print("response_file_path: ",response_file_path)
+#         print("dir_name: ",dir_name)
+#         calculate_accuracy(response_file_path, dir_name)
+
+dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+
 for dir_name in dir_names:
-    for i, _ in enumerate(prompts):
-        response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_noisy_punct_50.csv"
+    for percent in [10,30,50]:
+        response_file_path = f"{DIR_PATH}/data/gsm/{dir_name}/{dir_name}_noisy_punct_{percent}.csv"
         print("response_file_path: ",response_file_path)
         print("dir_name: ",dir_name)
-        calculate_accuracy(response_file_path, dir_name)
+        calculate_accuracy(response_file_path, dir_name,percent)

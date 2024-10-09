@@ -66,8 +66,13 @@ PUNC_PERCENT = [10,30,50]
 for model in model_names:
     model_name = model.split("/")[1]
     for percent in PUNC_PERCENT:
+<<<<<<< HEAD
         cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/multiArith_noisy_punct_{percent}.csv {DIR_PATH}/data/multiArith/{model_name}/{model_name}_noisy_punct_{percent}.csv {model} {prompt}"
         script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
+=======
+        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/gsm8k_noisy_punct_{percent}.csv {DIR_PATH}/data/gsm/{model_name}/{model_name}_noisy_punct_{percent}.csv {model} {prompt}"
+        script = f"{DIR_PATH}script/gsm/generic_model_script.py"
+>>>>>>> 016d37c (GSM8K Noisy results)
         command = create_command(script, cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)
