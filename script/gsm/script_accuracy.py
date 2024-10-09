@@ -31,8 +31,15 @@ prompts = [
     # Call the calculate_accuracy function for each output file
 
 
-# dir_names = ['mistral_instruct', 'mistral_math', 'llama']
-# dir_names = ['llama']
+#dir_names = ['mistral_instruct', 'mistral_math', 'llama']
+# for dir_name in dir_names:
+#     for i, _ in enumerate(prompts):
+#         response_file_path = f"{DIR_PATH}/data/gsm/{dir_name}/{dir_name}_gsm_noisy_punct_10_prompt_{i}.csv"
+#         print("response_file_path: ",response_file_path)
+#         print("dir_name: ",dir_name)
+#         calculate_accuracy(response_file_path, dir_name)
+
+dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
 
 # for dir_name in dir_names:
 #     for i, _ in enumerate(prompts):
