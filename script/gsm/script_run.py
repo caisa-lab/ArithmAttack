@@ -26,11 +26,12 @@ prompt = "Think step by step through the following problem and clearly show each
 
 
 model_names = [
-    "meta-llama/Llama-3.1-8B-Instruct",
-    "google/gemma-2-2b-it",
-    "google/gemma-2-2b-jpn-it",
-    "HuggingFaceH4/zephyr-7b-beta",
-    "Qwen/Qwen2.5-1.5B-Instruct"
+    "mistralai/Mistral-7B-Instruct-v0.2"
+    # "meta-llama/Llama-3.1-8B-Instruct",
+    # "google/gemma-2-2b-it",
+    # "google/gemma-2-2b-jpn-it",
+    # "HuggingFaceH4/zephyr-7b-beta",
+    # "Qwen/Qwen2.5-1.5B-Instruct"
 ]
 
 # Function to create a command with prompts
@@ -66,7 +67,7 @@ for model in model_names:
     model_name = model.split("/")[1]
     for percent in PUNC_PERCENT:
         cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/multiArith_noisy_punct_{percent}.csv {DIR_PATH}/data/multiArith/{model_name}/{model_name}_noisy_punct_{percent}.csv {model} {prompt}"
-        script = f"{DIR_PATH}script/gsm/generic_model_script.py"
+        script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
         command = create_command(script, cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)
