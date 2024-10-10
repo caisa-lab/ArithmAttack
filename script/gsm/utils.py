@@ -4,6 +4,14 @@ import re, sys
 from config import access_token, DIR_PATH
 import math
 
+import tensorflow_hub as hub
+import tensorflow as tf
+import tensorflow_text
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+from tqdm import tqdm
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 def get_questions_and_answer_from_dataset(csv_file_path):
     # Load the specific CSV file
@@ -80,7 +88,7 @@ def calculate_accuracy(output_file, name,percent):
     correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
     df.to_csv(
-        f"{DIR_PATH}/data/gsm/{name}/{name}_noisy_{percent}_converted.csv",
+        f"{DIR_PATH}/data/multiArith/{name}/{name}_noisy_{percent}_converted.csv",
         index=False
     )
 
@@ -94,10 +102,84 @@ def calculate_accuracy(output_file, name,percent):
 
     # Save the DataFrame to a new CSV file
     accuracy_df.to_csv(
-        f"{DIR_PATH}/data/gsm/accuracy.csv",
+        f"{DIR_PATH}/data/multiArith/accuracy.csv",
         mode="a",
         header=False,
         index=False,
     )
 
     print("Accuracy saved to accuracy.csv.")
+
+
+
+# Function to calculate ASR
+def calculate_asr(clean_df, attacked_df):
+    total_correct = 0
+    total_attacked_success = 0
+    print('Length of clean and noisy df ',len(clean_df),len(attacked_df))
+    for idx, row in tqdm(clean_df.iterrows(), total=len(clean_df), desc="Calculating ASR"):
+        clean_answer = row['Answer - LLM Converted']
+        ground_truth = row['Answer - Ground Truth Converted']
+        attacked_answer = attacked_df.loc[idx, 'Answer - LLM Converted']
+        
+        # Check if clean answer was originally correct
+        if clean_answer == ground_truth:
+            total_correct += 1
+            # Check if attack caused an incorrect answer
+            if attacked_answer != ground_truth:
+                total_attacked_success += 1
+    
+    asr = total_attacked_success / total_correct if total_correct > 0 else 0
+    return asr
+
+# Function to calculate semantic similarity
+def calculate_similarity(clean_df, attacked_df,use_model):
+    total_similarity = 0
+    num_questions = len(clean_df)
+    
+    # Use Universal Sentence Encoder to compute similarity
+    clean_questions = clean_df['Question'].tolist()
+    attacked_questions = attacked_df['Question'].tolist()
+    
+    # Get sentence embeddings
+    clean_embeddings = use_model(clean_questions)
+    attacked_embeddings = use_model(attacked_questions)
+    
+    for i in tqdm(range(num_questions), desc="Calculating Similarity"):
+        clean_vec = clean_embeddings[i].numpy()
+        attacked_vec = attacked_embeddings[i].numpy()
+        
+        # Cosine similarity between original and attacked questions
+        similarity = cosine_similarity([clean_vec], [attacked_vec])[0][0]
+        # print('Similarity',similarity)
+        total_similarity += similarity
+    
+    avg_similarity = total_similarity / num_questions if num_questions > 0 else 0
+    return avg_similarity
+
+
+
+def get_asr_and_similarity(clean_converted_file, noisy_converted_file,name,percent):
+    clean_converted = pd.read_csv(clean_converted_file)
+    noisy_converted = pd.read_csv(noisy_converted_file)
+    # Load the Universal Sentence Encoder
+    embed = hub.load("https://www.kaggle.com/models/google/universal-sentence-encoder/TensorFlow2/universal-sentence-encoder/2")
+
+    # Calculate ASR and Similarity
+    asr = calculate_asr(clean_converted, noisy_converted)
+    similarity = calculate_similarity(clean_converted, noisy_converted,embed)
+    ASR = asr * 100.00
+    print(f"Attack Success Rate (ASR): {ASR}%")
+    print(f"Average Semantic Similarity: {similarity:.4f}")
+    data = {"Script Name": [f"{name}.py"],"Noise Percentage" : [percent], "ASR": [ASR],"Similarity": [similarity]}
+    accuracy_df = pd.DataFrame(data)
+
+    # Save the DataFrame to a new CSV file
+    accuracy_df.to_csv(
+        f"{DIR_PATH}/data/multiArith/asr_similarity.csv",
+        mode="a",
+        header=False,
+        index=False,
+    )
+
+    print("ASR and Similarity saved to asr_similarity.csv.")

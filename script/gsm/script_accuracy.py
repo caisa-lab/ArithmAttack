@@ -1,5 +1,5 @@
 #from script.gsm.script_run import dir_name
-from utils import calculate_accuracy
+from utils import calculate_accuracy,get_asr_and_similarity
 
 from config import access_token, DIR_PATH
 
@@ -39,7 +39,7 @@ prompts = [
 #         print("dir_name: ",dir_name)
 #         calculate_accuracy(response_file_path, dir_name)
 
-dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+# dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
 
 # for dir_name in dir_names:
 #     for i, _ in enumerate(prompts):
@@ -48,11 +48,25 @@ dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr
 #         print("dir_name: ",dir_name)
 #         calculate_accuracy(response_file_path, dir_name)
 
-dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+# dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+# prev_dir_names = ['llama','mistral_instruct','mistral_math']
 
-for dir_name in dir_names:
+# dir = ['Mistral-7B-Instruct-v0.2']
+# for dir_name in dir:
+#     for percent in [10,30,50]:
+#         response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_noisy_punct_{percent}.csv"
+#         print("response_file_path: ",response_file_path)
+#         print("dir_name: ",dir_name)
+#         calculate_accuracy(response_file_path, dir_name,percent)
+
+
+all_dir_names = ['llama','mistral_math','Mistral-7B-Instruct-v0.2','Llama-3.1-8B-Instruct','gemma-2-2b-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+
+for dir_name in all_dir_names:
     for percent in [10,30,50]:
-        response_file_path = f"{DIR_PATH}/data/gsm/{dir_name}/{dir_name}_noisy_punct_{percent}.csv"
-        print("response_file_path: ",response_file_path)
+        clean_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_converted.csv"
+        attacked_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_noisy_{percent}_converted.csv"
+        print("clean_file_path_converted: ",clean_file_path_converted)
+        print("attacked_file_path_converted: ",attacked_file_path_converted)
         print("dir_name: ",dir_name)
-        calculate_accuracy(response_file_path, dir_name,percent)
+        get_asr_and_similarity(clean_file_path_converted, attacked_file_path_converted,dir_name,percent)

@@ -22,3 +22,6 @@ zephyr-7b-beta.py noisy 50,22.22222222222222
 Qwen2.5-1.5B-Instruct.py noisy 10,93.33333333333333
 Qwen2.5-1.5B-Instruct.py noisy 30,88.33333333333333
 Qwen2.5-1.5B-Instruct.py noisy 50,85.55555555555556
+Mistral-7B-Instruct-v0.2.py noisy 10,72.22222222222221
+Mistral-7B-Instruct-v0.2.py noisy 30,66.11111111111111
+Mistral-7B-Instruct-v0.2.py noisy 50,65.0
