@@ -73,7 +73,7 @@ for model in model_names:
     print("\n")
     for name in dataset_name:
         cmd_line_args = f"{DIR_PATH}/data/RobustMath/{name}.json {DIR_PATH}/data/RobustMath/{model_name}/{name}.csv {model} {prompt}"
-        script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
+        script = f"{DIR_PATH}script/gsm/generic_model_script.py"
         command = create_command(script, cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)
