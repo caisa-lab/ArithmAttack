@@ -26,9 +26,11 @@ prompt = "Think step by step through the following problem and clearly show each
 
 
 model_names = [
+    "mistralai/Mathstral-7b-v0.1",
+    "meta-llama/Meta-Llama-3-8B-Instruct",
+    "mistralai/Mistral-7B-Instruct-v0.2",
     "meta-llama/Llama-3.1-8B-Instruct",
     "google/gemma-2-2b-it",
-    "google/gemma-2-2b-jpn-it",
     "HuggingFaceH4/zephyr-7b-beta",
     "Qwen/Qwen2.5-1.5B-Instruct"
 ]
@@ -62,11 +64,16 @@ def create_command(script, prompt):
 
 # print("All scripts have been executed.")
 
+PUNC_PERCENT = [10,30,50]
+dataset_name = ["clean_robust_math", "noisy_math_attack", "noisy_robust_math_30"]
 
 for model in model_names:
+    print("\n\n")
     model_name = model.split("/")[1]
-    cmd_line_args = f"{DIR_PATH}/data/gsm/test_preprocessed.csv {DIR_PATH}/data/gsm/{model_name}/{model_name}.csv {model} {prompt}"
-    script = f"{DIR_PATH}script/gsm/generic_model_script.py"
-    command = create_command(script, cmd_line_args)
-    # Execute the command
-    subprocess.run(command, shell=False)
+    print("\n")
+    for name in dataset_name:
+        cmd_line_args = f"{DIR_PATH}/data/RobustMath/{name}.json {DIR_PATH}/data/RobustMath/{model_name}/{name}.csv {model} {prompt}"
+        script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
+        command = create_command(script, cmd_line_args)
+        # Execute the command
+        subprocess.run(command, shell=False)

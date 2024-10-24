@@ -1,6 +1,6 @@
 import pandas as pd
 import re, sys
-
+import json
 from config import access_token, DIR_PATH
 import math
 
@@ -25,7 +25,18 @@ def get_questions_and_answer_from_multiArith_dataset(csv_file_path):
 
     return questions, groundTruths
 
-def calculate_accuracy(output_file, name):
+def get_questions_and_answer_from_robustMath_dataset(json_file_path):
+    # Load the specific JSON file
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    
+    # Extract the questions and answers
+    questions = [entry["x"] for entry in data]
+    groundTruths = [entry["y"] for entry in data]
+
+    return questions, groundTruths
+
+def calculate_accuracy(output_file, name,percent):
 
     print("Calculating accuracy")
     # Read the CSV file into a pandas DataFrame

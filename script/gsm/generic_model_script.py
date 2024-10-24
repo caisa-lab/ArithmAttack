@@ -16,6 +16,7 @@ from tqdm import tqdm
 from utils import (
     get_questions_and_answer_from_multiArith_dataset,
     get_questions_and_answer_from_dataset,
+    get_questions_and_answer_from_robustMath_dataset
 )
 
 
@@ -61,8 +62,9 @@ model.config.pretraining_tp = 1
 # csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
 # questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
-questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
-
+#questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
+#questions, ground_truths = get_questions_and_answer_from_noisy_dataset(input_file)
+questions, ground_truths = get_questions_and_answer_from_robustMath_dataset(input_file)
 
 # output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_multiArith_response.csv"
 # output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
@@ -119,8 +121,8 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
             }
         )
 
-        # counter += 1
-        # if counter >= 1:
-        #     break
+        counter += 3
+        if counter >= 1:
+            break
 
 print(f"Questions and answers saved to {output_file}")
