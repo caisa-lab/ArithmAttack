@@ -88,7 +88,7 @@ def calculate_accuracy(output_file, name,percent):
     correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
     df.to_csv(
-        f"{DIR_PATH}/data/multiArith/{name}/{name}_noisy_{percent}_converted.csv",
+        f"{DIR_PATH}/data/multiArith/{name}/{name}_noisy_new_{percent}_converted.csv",
         index=False
     )
 
@@ -97,7 +97,7 @@ def calculate_accuracy(output_file, name,percent):
     print("correct_matches: ", correct_matches)
     print("accuracy: ", accuracy)
     # Create a DataFrame for script name and accuracy
-    data = {"Script Name": [f"{name}.py noisy {percent}"], "Accuracy": [accuracy]}
+    data = {"Script Name": [f"{name}.py noisy {percent}"], "New Accuracy": [accuracy]}
     accuracy_df = pd.DataFrame(data)
 
     # Save the DataFrame to a new CSV file
@@ -176,7 +176,7 @@ def get_asr_and_similarity(clean_converted_file, noisy_converted_file,name,perce
 
     # Save the DataFrame to a new CSV file
     accuracy_df.to_csv(
-        f"{DIR_PATH}/data/multiArith/asr_similarity.csv",
+        f"{DIR_PATH}/data/gsm/asr_similarity.csv",
         mode="a",
         header=False,
         index=False,
