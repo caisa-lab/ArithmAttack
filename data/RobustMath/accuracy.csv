@@ -1,0 +1,21 @@
+Mistral-7B-Instruct-v0.2.py clean,62.616822429906534
+Mathstral-7b-v0.1.py clean,91.58878504672897
+Meta-Llama-3-8B-Instruct.py clean,87.38317757009347
+Llama-3.1-8B-Instruct.py clean,91.58878504672897
+gemma-2-2b-it.py clean,69.62616822429906
+zephyr-7b-beta.py clean,28.971962616822427
+Qwen2.5-1.5B-Instruct.py clean,80.8411214953271
+Mistral-7B-Instruct-v0.2.py noisy math,53.333333333333336
+Mathstral-7b-v0.1.py noisy math,77.66666666666666
+Meta-Llama-3-8B-Instruct.py noisy math,73.33333333333333
+Llama-3.1-8B-Instruct.py noisy math,77.0
+gemma-2-2b-it.py noisy math,54.666666666666664
+zephyr-7b-beta.py noisy math,20.333333333333332
+Qwen2.5-1.5B-Instruct.py noisy math,68.66666666666667
+Mistral-7B-Instruct-v0.2.py noisy 30,56.54205607476636
+Mathstral-7b-v0.1.py noisy 30,84.57943925233646
+Meta-Llama-3-8B-Instruct.py noisy 30,85.98130841121495
+Llama-3.1-8B-Instruct.py noisy 30,90.65420560747664
+gemma-2-2b-it.py noisy 30,62.149532710280376
+zephyr-7b-beta.py noisy 30,16.822429906542055
+Qwen2.5-1.5B-Instruct.py noisy 30,69.62616822429906

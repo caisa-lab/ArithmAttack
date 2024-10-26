@@ -1,4 +1,4 @@
-from utils import calculate_accuracy
+from utils import calculate_accuracy,get_asr_and_similarity
 
 from config import access_token, DIR_PATH
 
@@ -31,11 +31,19 @@ prompts = [
 
 
 #dir_names = ['mistral_instruct', 'mistral_math', 'llama']
-dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+dir_names = ['Mistral-7B-Instruct-v0.2', 'Mathstral-7b-v0.1', 'Meta-Llama-3-8B-Instruct' ,'Llama-3.1-8B-Instruct','gemma-2-2b-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
 
-for dir_name in dir_names:
-    for i, _ in enumerate(prompts):
-        response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}.csv"
-        print("response_file_path: ",response_file_path)
-        print("dir_name: ",dir_name)
-        calculate_accuracy(response_file_path, dir_name)
+# for dir_name in dir_names:
+#     for i, _ in enumerate(prompts):
+#         response_file_path = f"{DIR_PATH}/data/RobustMath/{dir_name}/noisy_robust_math_30.csv"
+#         print("response_file_path: ",response_file_path)
+#         print("dir_name: ",dir_name)
+#         calculate_accuracy(response_file_path, dir_name)
+
+for dir_name in dir_names:    
+    clean_file_path_converted = f"{DIR_PATH}/data/RobustMath/{dir_name}/{dir_name}_clean_converted.csv"
+    attacked_file_path_converted = f"{DIR_PATH}/data/RobustMath/{dir_name}/{dir_name}_noisy_30_converted.csv"
+    print("clean_file_path_converted: ",clean_file_path_converted)
+    print("attacked_file_path_converted: ",attacked_file_path_converted)
+    print("dir_name: ",dir_name)
+    get_asr_and_similarity(clean_file_path_converted, attacked_file_path_converted,dir_name)
