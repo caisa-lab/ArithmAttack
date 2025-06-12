@@ -4,35 +4,36 @@ import os
 
 
 # List of scripts to run sequentially
-scripts = [
-    # f"{DIR_PATH}/script/gsm/mistral_gsm.py",
-    f"{DIR_PATH}/script/gsm/llama_gsm.py",
-    f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
-    f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
-    # f"{DIR_PATH}/script/gsm/flan_gsm.py"
-]
+# scripts = [
+#     # f"{DIR_PATH}/script/gsm/mistral_gsm.py",
+#     f"{DIR_PATH}/script/gsm/llama_gsm.py",
+#     f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
+#     f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
+#     # f"{DIR_PATH}/script/gsm/flan_gsm.py"
+# ]
 
-prompts = [
-    # "Always end the answer with {The final answer is}",
-    # "Let's think step by step and always end the answer with {The final answer is}.",
-    # "Always end the answer with {The final answer is} and think step by step.",
-    # "Solve the following arithmetic problem step by step. Ensure to end the answer with {The final answer is}.",
-    # "You are a math tutor. Solve the following arithmetic problem step by step. Always end the answer with {The final answer is}.",
-    "Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.",
-    # "As a math tutor, explain your reasoning step by step for the following problem. Let's think step by step and end the answer with {The final answer is}."
-]
+# prompts = [
+#     # "Always end the answer with {The final answer is}",
+#     # "Let's think step by step and always end the answer with {The final answer is}.",
+#     # "Always end the answer with {The final answer is} and think step by step.",
+#     # "Solve the following arithmetic problem step by step. Ensure to end the answer with {The final answer is}.",
+#     # "You are a math tutor. Solve the following arithmetic problem step by step. Always end the answer with {The final answer is}.",
+#     "Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.",
+#     # "As a math tutor, explain your reasoning step by step for the following problem. Let's think step by step and end the answer with {The final answer is}."
+# ]
 
 prompt = "Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}."
 
 
 model_names = [
-    "mistralai/Mathstral-7b-v0.1",
-    "meta-llama/Meta-Llama-3-8B-Instruct",
-    "mistralai/Mistral-7B-Instruct-v0.2",
-    "meta-llama/Llama-3.1-8B-Instruct",
-    "google/gemma-2-2b-it",
-    "HuggingFaceH4/zephyr-7b-beta",
-    "Qwen/Qwen2.5-1.5B-Instruct"
+    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+    # "mistralai/Mathstral-7b-v0.1",
+    # "meta-llama/Meta-Llama-3-8B-Instruct",
+    # "mistralai/Mistral-7B-Instruct-v0.2",
+    # "meta-llama/Llama-3.1-8B-Instruct",
+    # "google/gemma-2-2b-it",
+    # "HuggingFaceH4/zephyr-7b-beta",
+    # "Qwen/Qwen2.5-1.5B-Instruct"
 ]
 
 
@@ -65,15 +66,16 @@ def create_command(script, prompt):
 # print("All scripts have been executed.")
 
 PUNC_PERCENT = [10,30,50]
-dataset_name = ["clean_robust_math", "noisy_math_attack", "noisy_robust_math_30"]
+#dataset_name = ["clean_robust_math", "noisy_math_attack", "noisy_robust_math_30"]
+dataset_name = ["questions"]
 
 for model in model_names:
     print("\n\n")
     model_name = model.split("/")[1]
     print("\n")
     for name in dataset_name:
-        cmd_line_args = f"{DIR_PATH}/data/RobustMath/{name}.json {DIR_PATH}/data/RobustMath/{model_name}/{name}.csv {model} {prompt}"
-        script = f"{DIR_PATH}script/gsm/generic_model_script.py"
+        cmd_line_args = f"{DIR_PATH}/data/multiArith/{name}.json {DIR_PATH}/data/multiArith/{model_name}/{name}.csv {model} {prompt}"
+        script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
         command = create_command(script, cmd_line_args)
         # Execute the command
         subprocess.run(command, shell=False)

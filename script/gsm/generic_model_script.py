@@ -32,7 +32,6 @@ print("Input file ", input_file)
 print("Output file ", output_file)
 print("Prompt ", prompt)
 
-
 access_token = access_token
 tokenizer = AutoTokenizer.from_pretrained(
     model_name, token=access_token, trust_remote_code=True
@@ -61,10 +60,10 @@ model.config.pretraining_tp = 1
 # csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
 # csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
-# questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
+questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
 #questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
 #questions, ground_truths = get_questions_and_answer_from_noisy_dataset(input_file)
-questions, ground_truths = get_questions_and_answer_from_robustMath_dataset(input_file)
+#questions, ground_truths = get_questions_and_answer_from_robustMath_dataset(input_file)
 
 # output_file = f"{DIR_PATH}/data/multiArith/mistral_instruct/mistral_instruct_multiArith_response.csv"
 # output_file = f"{DIR_PATH}/data/gsm/mistral_instruct/mistral_instruct_gsm_response.csv"
@@ -73,7 +72,7 @@ questions, ground_truths = get_questions_and_answer_from_robustMath_dataset(inpu
 # Command line arguments for prompts
 # if len(sys.argv) > 1:
 #     prompt = sys.argv[1:]  # Assume each argument is a separate prompt
-
+import ipdb; ipdb.set_trace()
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [

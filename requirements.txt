@@ -8,3 +8,10 @@ bitsandbytes
 jsonformer
 tiktoken
 jinja2
+
+tensorflow_hub
+tensorflow
+numpy
+tqdm
+
+scikit-learn
