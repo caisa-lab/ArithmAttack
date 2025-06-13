@@ -10,3 +10,6 @@ Qwen2.5-1.5B-Instruct.py,97.22222222222221
 mistral_instruct.py,71.66666666666667
 mistral_math.py,96.11111111111111
 llama.py,95.0
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,100.0
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,100.0
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,80.0

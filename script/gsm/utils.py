@@ -63,6 +63,23 @@ def calculate_accuracy(output_file, name):
         try:
             #print("value: ",value)
             value = value.replace(',', '')
+            
+            # First try to find boxed numbers \boxed{number}
+            boxed_match = re.search(r'\\boxed\{(\d+\.?\d*)\}', value)
+            if boxed_match:
+                return float(boxed_match.group(1))
+            
+            # Then try to find numbers in LaTeX math mode \(number\)
+            latex_match = re.search(r'\\\(\s*(\d+\.?\d*)\s*\\\)', value)
+            if latex_match:
+                return float(latex_match.group(1))
+            
+            # Look for numbers after "Final Answer:"
+            final_answer_match = re.search(r'Final Answer:.*?(\d+\.?\d*)', value, re.IGNORECASE)
+            if final_answer_match:
+                return float(final_answer_match.group(1))
+            
+            # If no specific format found, look for any number
             numbers = re.findall(r'\d+\.\d+|\d+', value)
             #print("numbers: ",numbers)
             if numbers:
@@ -92,7 +109,7 @@ def calculate_accuracy(output_file, name):
     correct_matches = sum(df["Answer - Ground Truth Converted"] == df["Answer - LLM Converted"])
     accuracy = correct_matches / total_rows * 100
     df.to_csv(
-        f"{DIR_PATH}/data/RobustMath/{name}/{name}_noisy_30_converted.csv",
+        f"{DIR_PATH}/data/multiArith/{name}/test_preprocessed.csv",
         index=False
     )
 
@@ -106,7 +123,7 @@ def calculate_accuracy(output_file, name):
 
     # Save the DataFrame to a new CSV file
     accuracy_df.to_csv(
-        f"{DIR_PATH}/data/RobustMath/accuracy.csv",
+        f"{DIR_PATH}/data/multiArith/accuracy.csv",
         mode="a",
         header=False,
         index=False,

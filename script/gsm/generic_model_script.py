@@ -32,36 +32,33 @@ print("Input file ", input_file)
 print("Output file ", output_file)
 print("Prompt ", prompt)
 
+
 access_token = access_token
+model_kwargs = {
+                    "device_map": "auto",
+                    "torch_dtype": torch.float16,
+                }
+
+# Load tokenizer with proper configuration
 tokenizer = AutoTokenizer.from_pretrained(
-    model_name, token=access_token, trust_remote_code=True
+    model_name,
+    token=access_token,
+    trust_remote_code=True
 )
 
-
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_use_double_quant=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.bfloat16,
-)
-
+# Load model with configured parameters
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     token=access_token,
-    device_map={"": 0},
-    quantization_config=bnb_config,
-    torch_dtype="auto",
     trust_remote_code=True,
+    **model_kwargs
 )
-
-model.config.use_cache = False
-model.config.pretraining_tp = 1
 
 # csv_file = f"{DIR_PATH}/data/multiArith/test_preprocessed.csv"
 # csv_file = f"{DIR_PATH}data/gsm/sample_test_preprocessed.csv"
 
-questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
-#questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
+#questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(input_file)
+questions, ground_truths = get_questions_and_answer_from_dataset(input_file)
 #questions, ground_truths = get_questions_and_answer_from_noisy_dataset(input_file)
 #questions, ground_truths = get_questions_and_answer_from_robustMath_dataset(input_file)
 
@@ -72,7 +69,7 @@ questions, ground_truths = get_questions_and_answer_from_multiArith_dataset(inpu
 # Command line arguments for prompts
 # if len(sys.argv) > 1:
 #     prompt = sys.argv[1:]  # Assume each argument is a separate prompt
-import ipdb; ipdb.set_trace()
+
 counter = 0
 with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = [
@@ -98,14 +95,12 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
                 """,
             }
         ]
-        model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to(
-            "cuda"
-        )
+      
+        model_inputs = tokenizer.apply_chat_template(messages, return_tensors="pt")
         generated_ids = model.generate(
-            model_inputs, max_new_tokens=1000, do_sample=True
+            model_inputs, max_new_tokens=2000, do_sample=True
         )
         generated_data = tokenizer.batch_decode(generated_ids)[0]
-
         # import pprint
         # print("##MESSAGE##")
         # pprint.pprint(messages)
@@ -121,7 +116,7 @@ with open(output_file, "w", newline="", encoding="utf-8") as csvfile:
         )
 
         # counter += 1
-        # if counter >= 1:
+        # if counter >= 2:
         #     break
 
 print(f"Questions and answers saved to {output_file}")

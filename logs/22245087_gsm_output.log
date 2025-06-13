@@ -1,0 +1,4 @@
+Model Name:  deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+Input file  /home/s28zabed_hpc/ArithmAttack/data/gsm/test_preprocessed.csv
+Output file  /home/s28zabed_hpc/ArithmAttack/data/gsm/DeepSeek-R1-Distill-Llama-8B/test_preprocessed.csv
+Prompt  Think step by step through the following problem and clearly show each step of your reasoning. Ensure the final answer is clearly indicated by ending with {The final answer is}.

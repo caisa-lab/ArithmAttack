@@ -19,3 +19,4 @@ Llama-3.1-8B-Instruct.py noisy 30,90.65420560747664
 gemma-2-2b-it.py noisy 30,62.149532710280376
 zephyr-7b-beta.py noisy 30,16.822429906542055
 Qwen2.5-1.5B-Instruct.py noisy 30,69.62616822429906
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,100.0

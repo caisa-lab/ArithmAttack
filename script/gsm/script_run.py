@@ -67,14 +67,14 @@ def create_command(script, prompt):
 
 PUNC_PERCENT = [10,30,50]
 #dataset_name = ["clean_robust_math", "noisy_math_attack", "noisy_robust_math_30"]
-dataset_name = ["questions"]
+dataset_name = ["test_preprocessed"]
 
 for model in model_names:
     print("\n\n")
     model_name = model.split("/")[1]
     print("\n")
     for name in dataset_name:
-        cmd_line_args = f"{DIR_PATH}/data/multiArith/{name}.json {DIR_PATH}/data/multiArith/{model_name}/{name}.csv {model} {prompt}"
+        cmd_line_args = f"{DIR_PATH}/data/gsm/{name}.csv {DIR_PATH}/data/gsm/{model_name}/{name}.csv {model} {prompt}"
         script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
         command = create_command(script, cmd_line_args)
         # Execute the command
