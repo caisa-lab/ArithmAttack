@@ -46,6 +46,18 @@ def get_questions_and_answer_from_robustMath_dataset(json_file_path):
 
     return questions, groundTruths
 
+def get_questions_and_answer_from_noisy_dataset(csv_file_path):
+    # Load the specific CSV file
+    data = pd.read_csv(csv_file_path)
+
+    # Extract the question column
+    questions = data["noisy_questions"].tolist()
+    groundTruths = data["answer"].tolist()
+
+    return questions, groundTruths
+
+
+
 def calculate_accuracy(output_file, name):
 
     print("Calculating accuracy")
