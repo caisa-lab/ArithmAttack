@@ -11,6 +11,8 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from tqdm import tqdm
 import os
+import json
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 def get_questions_and_answer_from_dataset(csv_file_path):
@@ -41,6 +43,16 @@ def get_questions_and_answer_from_noisy_dataset(csv_file_path):
     questions = data["noisy_questions"].tolist()
     groundTruths = data["answer"].tolist()
 
+    return questions, groundTruths
+
+def get_questions_and_answer_from_robustMath_dataset(json_file_path):
+    # Load the specific JSON file
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    
+    # Extract the questions and answers
+    questions = [entry["x"] for entry in data]
+    groundTruths = [entry["y"] for entry in data]
     return questions, groundTruths
 
 def calculate_accuracy(output_file, name,percent):

@@ -6,9 +6,9 @@ import os
 # List of scripts to run sequentially
 scripts = [
     #f"{DIR_PATH}/script/gsm/mistral_gsm.py",
-    f"{DIR_PATH}/script/gsm/llama_gsm.py",
-    f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
-    f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
+    # f"{DIR_PATH}/script/gsm/llama_gsm.py",
+    # f"{DIR_PATH}/script/gsm/mistral_math_gsm.py",
+    # f"{DIR_PATH}/script/gsm/mistral_instruct_gsm.py",
     #f"{DIR_PATH}/script/gsm/flan_gsm.py"
 ]
 
@@ -26,7 +26,8 @@ prompt = "Think step by step through the following problem and clearly show each
 
 
 model_names = [
-    "mistralai/Mistral-7B-Instruct-v0.2"
+ "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+    # "mistralai/Mistral-7B-Instruct-v0.2"
     # "meta-llama/Llama-3.1-8B-Instruct",
     # "google/gemma-2-2b-it",
     # "google/gemma-2-2b-jpn-it",
@@ -61,12 +62,13 @@ def create_command(script, prompt):
 
 # print("All scripts have been executed.")
 
-PUNC_PERCENT = [10,30,50]
+# PUNC_PERCENT = [30]
+datasets_names = ["clean_robust_math"]
 
 for model in model_names:
     model_name = model.split("/")[1]
-    for percent in PUNC_PERCENT:
-        cmd_line_args = f"{DIR_PATH}/data/noisy_datasets/multiArith_noisy_punct_{percent}.csv {DIR_PATH}/data/multiArith/{model_name}/{model_name}_noisy_punct_{percent}.csv {model} {prompt}"
+    for dataset in datasets_names:
+        cmd_line_args = f"{DIR_PATH}/data/RobustMath/{dataset}.json {DIR_PATH}/data/RobustMath/{model_name}/{model_name}.csv {model} {prompt}"
         script = f"{DIR_PATH}/script/gsm/generic_model_script.py"
         command = create_command(script, cmd_line_args)
         # Execute the command
