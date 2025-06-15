@@ -141,3 +141,8 @@ mistral_instruct.py noisy 50,39.65125094768764
 mistral_math.py noisy 10,75.05686125852918
 mistral_math.py noisy 30,74.37452615617892
 mistral_math.py noisy 50,71.03866565579985
+
+DeepSeek-R1-Distill-Llama-8B.py,73.76800606520091
+DeepSeek-R1-Distill-Llama-8B.py noisy 10,73.76800606520091
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,70.43214556482184
+DeepSeek-R1-Distill-Llama-8B.py noisy 50,67.24791508718727

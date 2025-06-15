@@ -25,3 +25,10 @@ Qwen2.5-1.5B-Instruct.py noisy 50,85.55555555555556
 Mistral-7B-Instruct-v0.2.py noisy 10,72.22222222222221
 Mistral-7B-Instruct-v0.2.py noisy 30,66.11111111111111
 Mistral-7B-Instruct-v0.2.py noisy 50,65.0
+DeepSeek-R1-Distill-Llama-8B.py,93.88888888888889
+DeepSeek-R1-Distill-Llama-8B.py noisy 10,90.0
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,92.77777777777779
+DeepSeek-R1-Distill-Llama-8B.py noisy 50,88.88888888888889
+DeepSeek-R1-Distill-Llama-8B.py noisy 10,90.0
+DeepSeek-R1-Distill-Llama-8B.py noisy 30,92.77777777777779
+DeepSeek-R1-Distill-Llama-8B.py noisy 50,88.88888888888889

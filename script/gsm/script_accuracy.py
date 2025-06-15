@@ -39,6 +39,25 @@ prompts = [
 #         print("dir_name: ",dir_name)
 #         calculate_accuracy(response_file_path, dir_name)
 
+
+all_dir_names = ['DeepSeek-R1-Distill-Llama-8B']
+
+# for dir_name in all_dir_names:
+#     response_file_path = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}.csv"
+#     print("response_file_path: ",response_file_path)
+#     print("dir_name: ",dir_name)
+#     calculate_accuracy(response_file_path, dir_name)
+
+for dir_name in all_dir_names:
+    for percent in [10,30,50]:
+        clean_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}.csv"
+        attacked_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_noisy_punct_{percent}.csv"
+        print("clean_file_path_converted: ",clean_file_path_converted)
+        print("attacked_file_path_converted: ",attacked_file_path_converted)
+        print("dir_name: ",dir_name)
+        #calculate_accuracy(attacked_file_path_converted, dir_name,percent)
+        get_asr_and_similarity(clean_file_path_converted, attacked_file_path_converted,dir_name,percent)
+    
 # dir_names = ['Llama-3.1-8B-Instruct','gemma-2-2b-it','gemma-2-2b-jpn-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
 
 # for dir_name in dir_names:
@@ -60,13 +79,13 @@ prompts = [
 #         calculate_accuracy(response_file_path, dir_name,percent)
 
 
-all_dir_names = ['llama','mistral_math','Mistral-7B-Instruct-v0.2','Llama-3.1-8B-Instruct','gemma-2-2b-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
+#all_dir_names = ['llama','mistral_math','Mistral-7B-Instruct-v0.2','Llama-3.1-8B-Instruct','gemma-2-2b-it','zephyr-7b-beta','Qwen2.5-1.5B-Instruct']
 
-for dir_name in all_dir_names:
-    for percent in [10,30,50]:
-        clean_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_converted.csv"
-        attacked_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_noisy_{percent}_converted.csv"
-        print("clean_file_path_converted: ",clean_file_path_converted)
-        print("attacked_file_path_converted: ",attacked_file_path_converted)
-        print("dir_name: ",dir_name)
-        get_asr_and_similarity(clean_file_path_converted, attacked_file_path_converted,dir_name,percent)
+# for dir_name in all_dir_names:
+#     for percent in [10,30,50]:
+#         clean_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_converted.csv"
+#         attacked_file_path_converted = f"{DIR_PATH}/data/multiArith/{dir_name}/{dir_name}_noisy_{percent}_converted.csv"
+#         print("clean_file_path_converted: ",clean_file_path_converted)
+#         print("attacked_file_path_converted: ",attacked_file_path_converted)
+#         print("dir_name: ",dir_name)
+#         get_asr_and_similarity(clean_file_path_converted, attacked_file_path_converted,dir_name,percent)
